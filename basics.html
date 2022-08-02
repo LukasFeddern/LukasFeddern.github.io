@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.35">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Basics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <img src="./www/RKILogo.svg.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./introduction.html">Getting Started</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./basics.html" aria-current="page">Basics</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./stats.html">Quantitative Analysis</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./survey.html">Survey Data Analysis</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resources.html">Resources</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basic-introduction-to-r" id="toc-basic-introduction-to-r" class="nav-link active" data-scroll-target="#basic-introduction-to-r">Basic introduction to R</a>
+  <ul class="collapse">
+  <li><a href="#workflow-in-r" id="toc-workflow-in-r" class="nav-link" data-scroll-target="#workflow-in-r">Workflow in R</a></li>
+  <li><a href="#data-types-in-r" id="toc-data-types-in-r" class="nav-link" data-scroll-target="#data-types-in-r">Data types in R</a></li>
+  <li><a href="#data-cleaning-in-r" id="toc-data-cleaning-in-r" class="nav-link" data-scroll-target="#data-cleaning-in-r">Data cleaning in R</a></li>
+  </ul></li>
+  <li><a href="#basic-introduction-to-stata" id="toc-basic-introduction-to-stata" class="nav-link" data-scroll-target="#basic-introduction-to-stata">Basic introduction to Stata</a>
+  <ul class="collapse">
+  <li><a href="#workflow-in-stata" id="toc-workflow-in-stata" class="nav-link" data-scroll-target="#workflow-in-stata">Workflow in Stata</a></li>
+  <li><a href="#data-cleaning-in-stata" id="toc-data-cleaning-in-stata" class="nav-link" data-scroll-target="#data-cleaning-in-stata">Data cleaning in Stata</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Basics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="basic-introduction-to-r" class="level2">
+<h2 class="anchored" data-anchor-id="basic-introduction-to-r">Basic introduction to R</h2>
+<section id="workflow-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-in-r">Workflow in R</h3>
+<section id="working-directory" class="level4">
+<h4 class="anchored" data-anchor-id="working-directory">Working directory</h4>
+<p>R sessions and especially the files connected to them can get confusing quickly. Specifying a working directory helps to structure your files and eases reading, saving, and writing files during your R Session. Directories are folders. A working directory is the parent folder that should contain your R code and any references files, such as data sets. So before we start using R, please create a folder (for instance on your Desktop) for all exercises and files used throught the workshop. In the following code examples, this folder will be called ‘Workshop’.<br>
+</p>
+<p>In order to find out what the working directory of your R session is, try out the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you want to change your working directory you can use the <code>setwd()</code> command. It takes the desired path as input. Be sure to wrap the path in quotes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="packages" class="level4">
+<h4 class="anchored" data-anchor-id="packages">Packages</h4>
+<p>Packages are one of the keys to using R. They contain a number of functions, compiled code, and data sets that are available to you after installing and calling the package. The functions were written by the R Community and are checked and updated continuously for the most common popular packages. Unlike for other statistical programs, such as Stata, there is no technical support, however, or any technical warranties. Just bare in mind that packages that are no longer supported, outdated, or not checked might contain mistakes. All packages we use in this workshop are supported as of the date of the course.<br>
+</p>
+<p>In order to use the packages, you need to install and load each package. You can install packages by running the <code>install.packages()</code> command. It takes the name of your package <em>in quotes</em> as input.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"Name of your package"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before using a package you need to call and load it. The <code>library()</code> command allows you to do exactly that. Note that unlike <code>install.packages()</code> the package name is not in quotes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Name of your package)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can install and call packages manually by clicking on the ‘Packages’ tab in the bottom right pane and selecting ‘Install’. There should be a pop-up window where you can specify the package to be installed. After the installation, look for the package in the bottom right pane and simply check the box to the left of the name. This will call the package. It is now ready to be used.<br>
+</p>
+<p>Be aware that some packages contain functions with the same name. As a result, R will use the package from the more recently called package and mask the function from the older package. If you need the function from the previous package simply specify the package name before calling the function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>package<span class="sc">::</span><span class="cf">function</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Typing <code>::</code> after the package name will also show a dropdown of all the different functions and data sets contained in a package.<br>
+</p>
+</section>
+<section id="creating-an-object" class="level4">
+<h4 class="anchored" data-anchor-id="creating-an-object">Creating an object</h4>
+<p>You can assign any type of data to an object name&gt; If you want to retrieve the data simply call the object name. Data can be assigned to an object name using the <code>&lt;-</code> operator. In this example 3 is assigned the object name ‘x’. We call ‘x’ simly by running it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</section>
+<section id="importing-data" class="level4">
+<h4 class="anchored" data-anchor-id="importing-data">Importing data</h4>
+<p>R offers support for a number of different data formats. Base R, that is the preinstalled functions in R, enable you to import and export text files, such as .csv files. As you will see, the packages <a href="https://cran.r-project.org/web/packages/foreign/foreign.pdf">foreign</a>, <a href="https://cran.r-project.org/web/packages/haven/haven.pdf">haven</a>, <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a>, and <a href="https://cran.r-project.org/web/packages/readr/readr.pdf">readr</a> will allow you to import Stata, SAS, SPSS, as well as Microsoft Excel files.<br>
+</p>
+<section id="importing-csv" class="level5">
+<h5 class="anchored" data-anchor-id="importing-csv">Importing CSV</h5>
+<p>The following code shows how to import a csv using the pre-installed ‘utils’ package. It takes the file path in quotation as input and shows the data set. Importantly the file path is relative to your working directory.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br>
+This also works with urls as input.<br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively, you can use the <code>read_csv()</code> function from the tidyverse.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-excel-files" class="level5">
+<h5 class="anchored" data-anchor-id="importing-excel-files">Importing Excel files</h5>
+<p>You can import Excel files using the <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_excel</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-stata-data" class="level5">
+<h5 class="anchored" data-anchor-id="importing-stata-data">Importing Stata data</h5>
+<p>You can import Stata files using the <a href="https://cran.r-project.org/web/packages/haven/haven.pdf">haven</a> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">read_dta</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-spss-data" class="level5">
+<h5 class="anchored" data-anchor-id="importing-spss-data">Importing SPSS data</h5>
+<p>You can import SPSS files using the <a href="https://cran.r-project.org/web/packages/haven/haven.pdf">haven</a> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">read_spss</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-sas-data" class="level5">
+<h5 class="anchored" data-anchor-id="importing-sas-data">Importing SAS data</h5>
+<p>You can import SAS files using the <a href="https://cran.r-project.org/web/packages/haven/haven.pdf">haven</a> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">read_sas</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-other-data-formats" class="level5">
+<h5 class="anchored" data-anchor-id="importing-other-data-formats">Importing other data formats</h5>
+<p>The ‘haven’ package allows you to import many different file formats. If you want to import data from an SQL data base, you can use the ‘DBI’ package. But this exceeds the scope of this introduction to R.</p>
+</section>
+<section id="a-general-note-on-encoding" class="level5">
+<h5 class="anchored" data-anchor-id="a-general-note-on-encoding">A general note on encoding</h5>
+<p>When importing data, you might need to adjust the encoding of text data. For instance, R does not automatically adjust the encoding for French. For example: You import data containing the French language names of health facilities or locations. If you do not adjust the encoding, the names might look strange, containing symbols such as <code> Ã©ª </code>. To prevent this, you can add an encoding option to your import code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(path, <span class="at">encoding=</span><span class="st">"UTF-8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>UTF-8 should display all the characters correctly. This encoding option also exists in the ‘haven’ and ‘readr’ package. The ‘readxl’ package automatically uses the UTF-8 encoding.</p>
+</section>
+<section id="importing-data-manually" class="level5">
+<h5 class="anchored" data-anchor-id="importing-data-manually">Importing data manually</h5>
+<p>As with installing and loading packages, R Studio allows you to import data manually. As shown in the screenshot you can click on the ‘Environment’ tab in the top right pane and then select ‘Import Dataset’. You can then select the corresponding file format. Alternatively you can click on ‘File’ all the way on top left of your screen and select ‘Import Dataset’ there. After selecting the file type, you will see a pop up window allowing you to manually select the file from your computer’s Explorer/Finder by clicking on ‘Browse’ in the top right corner.</p>
+</section>
+</section>
+<section id="save-export-and-inspect-data" class="level4">
+<h4 class="anchored" data-anchor-id="save-export-and-inspect-data">Save, export and inspect data</h4>
+<p>Similar to the examples above, a data set is an object to which an object name can be assigned. This code reads a csv and assigns the output name ‘df’ to the output.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Generally, it is advisable to use short but meaningful object names.</p>
+<p>You can choose to save the data set after importing it using the <code>save()</code> function. You can also choose to export your data set into a format other than <code>Rdata</code>. Depending on the format of your choosing this can be done using the <code>write.csv()</code> command. It takes the object name of your data and the target path as input. If you want to save the file to your working directory, you can simply provide the desired file name with a csv extension instead of an entire path as input. If your data set does not contain rownames, setting row.names to <code>FALSE</code> makes sure that the function does not add an additional index column to your csv file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df, <span class="st">"path/df.csv"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df, <span class="st">"df.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also save your data as an excel file using the <code>write.xlsx()</code> from the ‘xlsx’ package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(df, path, <span class="at">sheetName =</span> <span class="st">"Sheet1"</span>, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">append =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To get a first glimpse of a data set <code>summary()</code> is a good start. Additional options include <code>str()</code>, <code>glimpse()</code> from the ‘tidyverse’ package, <code>skim()</code> from the ‘skimr’ package, and <code>look_for()</code> from the ‘labelled’ package. All three functions take data sets as input. To get the distribution of a single variable you can call the variable using <code>df$variable</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To get the number of observation in your dataset you can use the <code>nrow()</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Often, data sets will contain missing data. To check if data are missing in a specific variable you can make use of the logical argument <code>is.na()</code> , which checks if data is missing (NA) and if it is, returns <code>TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(df<span class="sc">$</span>variable))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can add labels to variables using the <code>label()</code> command from the package ‘Hmisc’.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Hmisc<span class="sc">::</span><span class="fu">label</span>(df<span class="sc">$</span>variable) <span class="ot">&lt;-</span> <span class="st">"label"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-types-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="data-types-in-r">Data types in R</h3>
+<p>Throughout this workshop you will deal with different data types. Data types determine what operations or functions you can and cannot use with your data. To determine the data type of an object you can use <code>class()</code> or <code>typeof()</code>. We continue to use our object with name ‘df’ and variable name ‘variable’.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="numeric-data" class="level4">
+<h4 class="anchored" data-anchor-id="numeric-data">Numeric data</h4>
+<p>Numeric data includes data of type double, integer and float. In the code below, you will see that our input is numeric.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+</div>
+<p>You can do a number of operations using numeric data in R. The most basic ones include summation, multiplication, subtraction, and division.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5-2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.5</code></pre>
+</div>
+</div>
+<p>R also allows you to do slightly more advanced calculations involving squares, roots, logarithms, and exponentials.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span><span class="sc">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 81</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.718282</code></pre>
+</div>
+</div>
+<p>Moreover, you can easily call scientific constants in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.141593</code></pre>
+</div>
+</div>
+<p>In order to turn an object or variable into a numeric one you can use <code>as.numeric()</code>. The function takes an object of any type as input and coerces it to numeric</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">"5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>Note that <code>as.integer()</code> is also a suitable alternative in this case, but be aware that if you use <code>as.integer()</code> R will automatically cut off the decimal part.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="st">"5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">2.34</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+</section>
+<section id="characters-and-strings" class="level4">
+<h4 class="anchored" data-anchor-id="characters-and-strings">Characters and strings</h4>
+<p>Besides numeric data, you will also encounter strings, which are sequences of characters. In R, characters are defined by their enclosure through single or double quotes</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">'a'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>Characters and strings can be concatenated using <code>paste()</code>. If you don’t want the strings to be seperated by a whitespace, you should use <code>paste0()</code> instead.<br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Hello"</span>,<span class="st">"World"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Hello World"</code></pre>
+</div>
+</div>
+<p>The number of characters in a string can be determined using <code>nchar()</code>.<br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(<span class="st">"five"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</section>
+<section id="logical-or-boolean-data" class="level4">
+<h4 class="anchored" data-anchor-id="logical-or-boolean-data">Logical or boolean data</h4>
+<p>Logical or boolean data is either <code>TRUE</code> or <code>FALSE</code>.</p>
+<p>Some operators include <code>==</code> (test of equality), <code>&gt;</code> (greater than), <code>&gt;=</code> (greater or equal than), <code>&lt;</code> (smaller than), <code>=&lt;</code> (smaller or equal than), <code>!=</code> (inquality), as well as <code>&amp;</code> (logical and) <code>|</code> (logical or), and <code>!</code> (not).</p>
+<p>To test if one numeric value is smaller than another you can use the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">&lt;</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">4</span><span class="sc">&lt;</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+</div>
+<p>This statement evaluates to FALSE. The data type of <code>FALSE</code> is logical.<br>
+You can connect logical statements and negate them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">==</span><span class="dv">1</span><span class="sc">&amp;</span><span class="dv">2</span><span class="sc">==</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">&lt;</span><span class="dv">1</span><span class="sc">|</span><span class="dv">1</span><span class="sc">&gt;</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Last, you can test if one or more elements are in a vector using <code>%in%</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="dates" class="level4">
+<h4 class="anchored" data-anchor-id="dates">Dates</h4>
+<p>Dates can be stored as strings but as soon as you want to work with a date, storing it as a string becomes inconvenient. Instead, dates have their own class. The <code>as.Date()</code> takes a string as input and coerces it into a ‘Date’ type object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="st">"01/01/2022"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "01/01/2022"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"01/01/2022"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.Date</span>(<span class="st">"01/01/2022"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Date"</code></pre>
+</div>
+</div>
+</section>
+<section id="vectors" class="level4">
+<h4 class="anchored" data-anchor-id="vectors">Vectors</h4>
+<p>Vectors are one dimensional data structures in R. Unless the vector is empty, it contains elements. If all elements are of the same kind, the vector is called an atomic vector. <code>is.atomic()</code> tests whether a vector is atomic. To create a vector <code>c()</code> can be use. The <code>class()</code> is defined by its elements.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>Vectors are flat data structures. That means <code>c(c())</code> will not result in a vector within a vector but rather one vector. If both vectors contain elements, they will be merged into one vector.</p>
+</section>
+<section id="lists" class="level4">
+<h4 class="anchored" data-anchor-id="lists">Lists</h4>
+<p>Lists are also one dimensional data structure. Unlike atomic vectors, they can contain different kinds of elements, including other lists. A new list is intialized using the <code>list()</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>list()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"Berlin"</span>, <span class="fl">2.3</span>, <span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
+</div>
+</div>
+</section>
+<section id="factors" class="level4">
+<h4 class="anchored" data-anchor-id="factors">Factors</h4>
+<p>A factor is a vector that is used to store categorical elements. The possible values or ‘levels’ are predefined. Each level can have a descriptor. The descriptor is called a ‘label’ and is of type string. Factors are intialized using <code>factor()</code>. The only required input is the data vector. We will also specify the levels and labels in our example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"f"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] m f f m
+Levels: m f</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"f"</span>))</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+</div>
+</section>
+<section id="matrices" class="level4">
+<h4 class="anchored" data-anchor-id="matrices">Matrices</h4>
+<p>Matrices are two dimensional data objects (meaning they can be arranged in rows and columns). They are intialized using the <code>matrix()</code> command. The input includes a vector, the number of rows, the number of columns, and the <code>byrow</code> option that can be set to true or false.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    3    5    7
+[2,]    2    4    6    8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames" class="level4">
+<h4 class="anchored" data-anchor-id="data-frames">Data frames</h4>
+<p>Like matrices, data frames are two dimensional objects. They organize data into rows and columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"berlin"</span>, <span class="st">"paris"</span>, <span class="st">"rome"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  x      y
+1 1 berlin
+2 2  paris
+3 3   rome</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"berlin"</span>, <span class="st">"paris"</span>, <span class="st">"rome"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+</div>
+<p>You can combine data frames using <code>cbind()</code> or <code>rbind()</code>. <code>cbind()</code> combines the columns of the data frames and <code>rbind()</code> combines the rows of the data frames.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"berlin"</span>, <span class="st">"paris"</span>, <span class="st">"rome"</span>)), </span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">z=</span> <span class="fu">c</span>(<span class="st">"bmw"</span>, <span class="st">"peugot"</span>, <span class="st">"fiat"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  x      y      z
+1 1 berlin    bmw
+2 2  paris peugot
+3 3   rome   fiat</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"berlin"</span>, <span class="st">"paris"</span>, <span class="st">"rome"</span>)), </span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"stockholm"</span>, <span class="st">"london"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  x         y
+1 1    berlin
+2 2     paris
+3 3      rome
+4 4 stockholm
+5 5    london</code></pre>
+</div>
+</div>
+<p>You can access columns of a data frame using <code>$</code> or by their index. The index for any element is based on its position in the data frame. The index is written in brackets and the row number is entered first, then a comma, and then the column number. If you want to access all rows you simply omit the row number and just specify the columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"berlin"</span>, <span class="st">"paris"</span>, <span class="st">"rome"</span>)), </span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">z=</span> <span class="fu">c</span>(<span class="st">"bmw"</span>, <span class="st">"peugot"</span>, <span class="st">"fiat"</span>)))</span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "berlin" "paris"  "rome"  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>df[,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "berlin" "paris"  "rome"  </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data-cleaning-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-in-r">Data cleaning in R</h3>
+<p>After importing and inspecting a data set, you might need to prepare the data for analysis. This process is often called data cleaning or data management (see also <a href="https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf">Statistics Netherlands</a>).</p>
+<p>You want to get from : * Raw data to * Technically correct data to * Consistent data that is ready for analysis</p>
+<p>Moving from raw data to technically correct data, you need to ensure that each variable (or column) is of the correct data type. That means all text data should be stored as strings, all categorical data should be stored as factors, and all numeric data should be stored as such.</p>
+<p>To get consistent data that is ready for analysis, you need to deal with duplicated and missing data, identify outliers, and fix inconsistencies in the data. The following brief examples provide code snippets for common data for each of the tasks.</p>
+<section id="missing-data" class="level4">
+<h4 class="anchored" data-anchor-id="missing-data">Missing data</h4>
+<p>To identify rows that contain missing values you can subset the data using the logical test <code>complete.cases()</code> from the stats package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>df[<span class="sc">!</span><span class="fu">complete.cases</span>(df),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you wish to omit missing data, you can use the <code>na.omit()</code> command. This will remove all rows with missing data. Beware, this can introduce bias in you analysis!</p>
+</section>
+<section id="identify-potential-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="identify-potential-outliers">Identify potential outliers</h4>
+<p>The following code identifies rows in the data set ‘df’ for which values of the variable ‘variable’ are potential outliers.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">boxplot.stats</span>(df<span class="sc">$</span>variable)<span class="sc">$</span>out</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">which</span>(dat<span class="sc">$</span>hwy <span class="sc">%in%</span> <span class="fu">c</span>(outliers))</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>df[rows,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fix-inconsistencies" class="level4">
+<h4 class="anchored" data-anchor-id="fix-inconsistencies">Fix inconsistencies</h4>
+<p>Sometimes there are issues with our data. Variable names need to be changed, factors recoded, or values changed. R offers a suit of functions to fix these issues.</p>
+<p><strong>Renaming a variable</strong> can be done in a number of ways. Here we focus on the base R and the ‘tidyverse’ solution. The first option uses the <code>names()</code> command, which defines the variable names for the data frame. We thus reassign the variable names using <code>&lt;-</code>. Note that the vector of new names needs to be as long as the vector of old names (in other words you need to specify all names). The <code>rename()</code> command from the ‘tidyverse’ package takes the data set as input and the new and old variable names. Note that variable names are not in quotes and the number of variables you want to change can vary.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"new_var1"</span>, <span class="st">"new_var2"</span>, <span class="st">"new_var3"</span>)</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(df, <span class="at">new_var1 =</span> old_var1, <span class="at">new_var2 =</span> old_var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you wish to <strong>create a new variable</strong> you can simly add a column to your data set or use <code>mutate()</code> from the ‘tidyverse’ package. Note that the added column needs to have the same length as the other columns. For both options, if you just enter one value, the value you is repeated for the length of the original data set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>new_var <span class="ot">&lt;-</span> <span class="fu">c</span>(new_value, new_value, new_value)</span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(df, <span class="at">new_var =</span> <span class="fu">c</span>(new_value, new_value, new_value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you wish to <strong>change the value of an exisiting variable</strong> you can use base R or mutate <code>mutate()</code> from the ‘tidyverse’ package again. The base R solution subsets the data and then overwrites the exisiting old values by the new ones. As you can see we are using a logical statement to subset the data (i.e.&nbsp;testing whether old_var is equal to old_value).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>old_var[df<span class="sc">$</span>old_var <span class="sc">==</span> old_value] <span class="ot">&lt;-</span> new_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that you can also replace values <em>conditional</em> on their existing value using <code>ifelse()</code>. <code>ifelse()</code> tests a logical statement (e.g.&nbsp;the old_var is equal to old_value). If this is true, it will do something (e.g.&nbsp;replace the value with new_value). If it is false it will do something else (e.g.&nbsp;keep the value from old_var).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(df, <span class="at">old_var =</span> <span class="fu">c</span>(new_value, new_value, new_value))</span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(df, <span class="at">old_var =</span> <span class="fu">ifelse</span>(old_var <span class="sc">==</span> old_value, new_value, old_var))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively, you can use <code>recode()</code>. Note that numeric data will have to be wrapped in <code><code></code></code>. This also works for factor variables, automatically adjusting the levels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>old_var <span class="ot">&lt;-</span> <span class="fu">recode</span>(df<span class="sc">$</span>old_var, <span class="at">old_value1 =</span> new_value1, <span class="at">old_value2 =</span> new_value2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="basic-introduction-to-stata" class="level2">
+<h2 class="anchored" data-anchor-id="basic-introduction-to-stata">Basic introduction to Stata</h2>
+<section id="workflow-in-stata" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-in-stata">Workflow in Stata</h3>
+<section id="working-directory-1" class="level4">
+<h4 class="anchored" data-anchor-id="working-directory-1">Working directory</h4>
+<p>Similar to R, the working directory in Stata can organize your work allow you to access data and do-files easier.</p>
+<p>To get your current working directory in Stata, use the <code>pwd</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>pwd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To set a new working directory in Stata, use the <code>cd</code> command. Note that if your path contains a blank space, you need to wrap the path in quotes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>cd path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="do-files" class="level4">
+<h4 class="anchored" data-anchor-id="do-files">Do-Files</h4>
+<p>Stata’s do-file is a text document that contains your reproducible code. To call the do file you can use the command <code>doedit</code> or click on ‘File’ in the top left corner of your Stata window and select ‘Do…’.</p>
+<p>You can edit the do-file through the Do-File Editor like a regular text document and save your commands as you would in any other file. You can execute your code by pressing ‘Execute (do)’ button. This also works for selected chunks of the code that you highlighted before pressing the ‘Execute (do)’ button.</p>
+<p>Every do-file typically starts with <code>clear all</code> to clear clear Stata of any stray data or results.</p>
+</section>
+<section id="importing-data-1" class="level4">
+<h4 class="anchored" data-anchor-id="importing-data-1">Importing data</h4>
+<p>To import data into stata you can use the <code>use</code> command. If the data file is in your working directory, you can simply provide the file name. If it is not, you need to specify the exact path. If the path (or the file name) contains spaces, it needs to be enclosed in quotes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>use path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="importing-csv-files" class="level5">
+<h5 class="anchored" data-anchor-id="importing-csv-files">Importing CSV files</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>import delimited path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Like R, Stata allows you to import files from the web. Simply replace the path with the url.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>import delimited url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-excel-files-1" class="level5">
+<h5 class="anchored" data-anchor-id="importing-excel-files-1">Importing Excel files</h5>
+<p>You can import Excel files using the <code>import excel</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>import excel path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-spss-data-1" class="level5">
+<h5 class="anchored" data-anchor-id="importing-spss-data-1">Importing SPSS data</h5>
+<p>You can import SPSS files using the <code>import spss</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>import spss path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-sas-data-1" class="level5">
+<h5 class="anchored" data-anchor-id="importing-sas-data-1">Importing SAS data</h5>
+<p>You can import SPSS files using the <code>import sas</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>import sas path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importing-other-data-formats-1" class="level5">
+<h5 class="anchored" data-anchor-id="importing-other-data-formats-1">Importing other data formats</h5>
+<p>Additional data formats can be found <a href="https://www.stata.com/manuals/gsu8.pdf">here</a>.</p>
+</section>
+<section id="importing-data-manually-1" class="level5">
+<h5 class="anchored" data-anchor-id="importing-data-manually-1">Importing data manually</h5>
+<p>There are a number of easy ways to manually import data into Stata. First, you can simply double click you data file with the .dta extension. If Stata is installed on your computer and set as a default to open .dta files, then it should open the data in Stata.</p>
+<p>Second, you can click on ‘File’ in the top left corner, and select ‘Open…’, or use the <kbd>Crtl</kbd>+<kbd>o</kbd> shortcut. You can then select the file in the pop-up window.</p>
+<p>Third, files in formats other than .dta can be imported by clicking on ‘File’&gt;‘Import’ and then selecting the needed file format.</p>
+</section>
+</section>
+<section id="save-export-and-inspect-data-1" class="level4">
+<h4 class="anchored" data-anchor-id="save-export-and-inspect-data-1">Save, export and inspect data</h4>
+<p>You can save or export data in Stata using the <code>save</code> command. You can specify <code>replace</code> to allow Stata to overwrite exisiting files.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>save <span class="st">"data"</span>, replace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Data can be exported using the <code>export</code> command. The following code exports data to a CSV file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>export delimited</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can save the data as an Excel file using <code>export excel</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>export excel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To get a first glimpse of a data set in Stata you can use the <code>summarize</code> command. Additional options include <code>describe</code>, <code>inspect</code>, <code>compact</code> and <code>codebook</code>. All functions can be limited to just one, or any subset of variables in your data set. By using <code>* substring *</code> you can filter variables by a substring. For instance, if you are intersted in all treatment variables in a data set you could type</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">*</span>treat<span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For suvey data anlysis the codebook command is quite useful as it can be combined with a log file and saved separately for later use. The <code>labelbook</code> works similar and creates a printed listing of labels in the data set.</p>
+<p>Often, data sets will contain missing data. To check if data are missing in a specific variable you can make use of the <code>mdesc</code> command. <code>mdesc</code> is not part of Stata so it is needs to be installed using <code>ssc install</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a>ssc install mdesc</span>
+<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a>mdesc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can add labels to variables using the <code>label variable </code> command. In the snippet below we use variable1 as a place holder for the variable name and “label” as a place holder for the label name. The label name has to be provided in quotes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>label variable variable1 <span class="st">"label"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-cleaning-in-stata" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-in-stata">Data cleaning in Stata</h3>
+<section id="missing-data-1" class="level4">
+<h4 class="anchored" data-anchor-id="missing-data-1">Missing data</h4>
+<p>If you wish to omit missing data, you can use the <code>drop if</code> command. This will remove all rows with missing data in the specified column. Beware, this can introduce bias in you analysis!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>drop <span class="cf">if</span> var<span class="sc">==</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="identify-potential-outliers-1" class="level4">
+<h4 class="anchored" data-anchor-id="identify-potential-outliers-1">Identify potential outliers</h4>
+<p>The following code identifies rows in the data set ‘df’ for which values of the variable ‘variable’ are potential outliers.</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="fix-inconsistencies-1" class="level4">
+<h4 class="anchored" data-anchor-id="fix-inconsistencies-1">Fix inconsistencies</h4>
+<p>Sometimes there are issues with our data. Variable names need to be changed, factors recoded, or values changed. R offers a suit of functions to fix these issues.</p>
+<p>Stata contains a convenient feature that allows you to verify and thus check the quality of your data. Using the <code>assert</code> command, you can test if the variables are coded correctly. For instance, if the indicator variable for female only allows for female==0 for male, female==1 for female, and female ==. for missing data, the variable should reflect that. The lack of a return message indicates that there is no problem with the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>assert female <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> female <span class="sc">==</span> <span class="dv">1</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>label</code> command can also be used to <strong>add labels</strong> to categorical variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>label define varlabel <span class="dv">1</span> label1 <span class="dv">0</span> label2</span>
+<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a>label values var varlabel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can <strong>remove variables</strong> using the <code>drop</code> command. To remove several, sequential variables you simply type the first and the last variable to be removed and connect both using a hyphen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>drop var1 <span class="sc">-</span> var10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Renaming a variable</strong> can be done through <code>rename</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>rename old_name new_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you wish to <strong>create a new variable</strong> you can simply add a column to your data set. The <code>gen</code> will generate a new variable. In our example, we generate a variable with only missing values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>gen new_var<span class="ot">=</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you wish to <strong>change the value of an exisiting variable</strong> you can use <code>replace</code>. In the example below we recode non-response (“NS”) as missing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>replace var<span class="ot">=</span><span class="st">"."</span> <span class="cf">if</span> var<span class="sc">==</span><span class="st">"NS"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you wish to <strong>change the variable encoding</strong> you can use <code>recast</code> or <code>destring</code>. The <code>replace</code> option overwrites the exisiting variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>destring old_var, replace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Using the statistical program of your choosing</p>
+<ol class="example" type="1">
+<li>determine your current working directory<br>
+</li>
+<li>import the <a href="https://raw.githubusercontent.com/LukasFeddern/Workshop/main/peru.csv">csv</a> from the GitHub repository for this workshop and save it to your working directory<br>
+</li>
+<li>get a first glance of the data and determine the type of all variables in the data set<br>
+</li>
+<li>add the label “cardiovascular diseases” to the variable cardiovascular</li>
+<li>rename the variable “Heights..cm.” and move the unit of measurement to the label</li>
+<li>check for missing values for the variable rdt</li>
+<li>recode “Currently have” and “Had, within 9 months” into “yes” for all variables describing symptoms</li>
+</ol>
+<p><a href="./Solution1.html">Solution</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:FeddernL@rki.de">Contact</a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>
