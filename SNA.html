@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Survey Data Analysis</title>
+<title>Social Network Analysis in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,69 +15,6 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -147,7 +84,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./stats.html">Quantitative Analysis</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./survey.html" aria-current="page">Survey Data Analysis</a>
+    <a class="nav-link" href="./survey.html">Survey Data Analysis</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./resources.html">Resources</a>
@@ -163,14 +100,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#network-data" id="toc-network-data" class="nav-link" data-scroll-target="#network-data">Network data</a>
+  <ul class="collapse">
+  <li><a href="#adjacency-matrix" id="toc-adjacency-matrix" class="nav-link" data-scroll-target="#adjacency-matrix">Adjacency matrix</a></li>
+  <li><a href="#edge-list" id="toc-edge-list" class="nav-link" data-scroll-target="#edge-list">Edge list</a></li>
+  <li><a href="#attributes" id="toc-attributes" class="nav-link" data-scroll-target="#attributes">Attributes</a></li>
+  </ul></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#quantities" id="toc-quantities" class="nav-link" data-scroll-target="#quantities">Quantities</a>
+  <ul class="collapse">
+  <li><a href="#nodes" id="toc-nodes" class="nav-link" data-scroll-target="#nodes">Nodes</a></li>
+  <li><a href="#degrees" id="toc-degrees" class="nav-link" data-scroll-target="#degrees">Degrees</a></li>
+  <li><a href="#diameter" id="toc-diameter" class="nav-link" data-scroll-target="#diameter">Diameter</a></li>
+  <li><a href="#centrality" id="toc-centrality" class="nav-link" data-scroll-target="#centrality">Centrality</a></li>
+  <li><a href="#closeness" id="toc-closeness" class="nav-link" data-scroll-target="#closeness">Closeness</a></li>
+  <li><a href="#betweenness" id="toc-betweenness" class="nav-link" data-scroll-target="#betweenness">Betweenness</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Survey Data Analysis</h1>
+<h1 class="title">Social Network Analysis in R</h1>
 </div>
 
 
@@ -184,36 +143,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Stata</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fizz_buzz <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">fbnums =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  output <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">15</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"FizzBuzz"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Fizz"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">5</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Buzz"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">as.character</span>(fbnums)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(output)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"Hemken/Statamarkdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>use nile.dta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This is a brief and shallow introduction to social network analysis in R. It covers some of the basics and provides code examples for importing, cleaning, visualizing, and analyzing social network data in R.</p>
+</section>
+<section id="network-data" class="level2">
+<h2 class="anchored" data-anchor-id="network-data">Network data</h2>
+<p>Social networks represent interactions between actors. Interactions between actors could be friendships between students in high school, email exchanges between employees of a company, and relationships between organizations.</p>
+<section id="adjacency-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="adjacency-matrix">Adjacency matrix</h3>
+</section>
+<section id="edge-list" class="level3">
+<h3 class="anchored" data-anchor-id="edge-list">Edge list</h3>
+</section>
+<section id="attributes" class="level3">
+<h3 class="anchored" data-anchor-id="attributes">Attributes</h3>
+</section>
+</section>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+</section>
+<section id="quantities" class="level2">
+<h2 class="anchored" data-anchor-id="quantities">Quantities</h2>
+<section id="nodes" class="level3">
+<h3 class="anchored" data-anchor-id="nodes">Nodes</h3>
+</section>
+<section id="degrees" class="level3">
+<h3 class="anchored" data-anchor-id="degrees">Degrees</h3>
+</section>
+<section id="diameter" class="level3">
+<h3 class="anchored" data-anchor-id="diameter">Diameter</h3>
+</section>
+<section id="centrality" class="level3">
+<h3 class="anchored" data-anchor-id="centrality">Centrality</h3>
+</section>
+<section id="closeness" class="level3">
+<h3 class="anchored" data-anchor-id="closeness">Closeness</h3>
+</section>
+<section id="betweenness" class="level3">
+<h3 class="anchored" data-anchor-id="betweenness">Betweenness</h3>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

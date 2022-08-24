@@ -268,535 +268,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="option-1-1" class="level3">
 <h3 class="anchored" data-anchor-id="option-1-1">Option 1</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(peru)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     PTID            Heights..cm.    age_range              age       
- Length:2014        Min.   : 56.0   Length:2014        Min.   : 1.00  
- Class :character   1st Qu.:125.0   Class :character   1st Qu.:14.00  
- Mode  :character   Median :166.0   Mode  :character   Median :29.00  
-                    Mean   :148.9                      Mean   :32.92  
-                    3rd Qu.:175.0                      3rd Qu.:49.00  
-                    Max.   :183.0                      Max.   :89.00  
-    gender           job_status        workingoutsidehome public_transportation
- Length:2014        Length:2014        Length:2014        Length:2014          
- Class :character   Class :character   Class :character   Class :character     
- Mode  :character   Mode  :character   Mode  :character   Mode  :character     
-                                                                               
-                                                                               
-                                                                               
- household_contact  previoustest       study_RDT_result     type_ab         
- Length:2014        Length:2014        Length:2014        Length:2014       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-   diabetes         cardiovascular       obesity             fever          
- Length:2014        Length:2014        Length:2014        Length:2014       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
- nasalcongestion    breathdifficulty   generaldiscomfort    diarrhea        
- Length:2014        Length:2014        Length:2014        Length:2014       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-    nausea            cefalea             cough            sorethroat       
- Length:2014        Length:2014        Length:2014        Length:2014       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
- anysymptoms        symptoms3cat      
- Length:2014        Length:2014       
- Class :character   Class :character  
- Mode  :character   Mode  :character  
-                                      
-                                      
-                                      </code></pre>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/LukasFeddern/Workshop/main/peru.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(peru)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="option-2-1" class="level3">
 <h3 class="anchored" data-anchor-id="option-2-1">Option 2</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/zr/fkpnf7r112g3q4sn6hqvwcmh0000gn/T//RtmpJNxc8h/downloaded_packages</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-✔ tibble  3.1.7     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(peru)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 2,014
-Columns: 26
-$ PTID                  &lt;chr&gt; "026214-0182-3", "026214-0899-4", "026214-1648-5…
-$ Heights..cm.          &lt;dbl&gt; 75, 76, 78, 72, 91, 58, 64, 72, 82, 59, 82, 106,…
-$ age_range             &lt;chr&gt; "0-11", "0-11", "0-11", "0-11", "0-11", "0-11", …
-$ age                   &lt;int&gt; 8, 4, 6, 11, 6, 5, 7, 6, 5, 10, 7, 8, 11, 10, 9,…
-$ gender                &lt;chr&gt; "male", "male", "male", "female", "male", "femal…
-$ job_status            &lt;chr&gt; "student", "student", "student", "unemployed", "…
-$ workingoutsidehome    &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ public_transportation &lt;chr&gt; "yes", "no", "no", "no", "no", "no", "no", "no",…
-$ household_contact     &lt;chr&gt; "no", "no", "no", "no", "no", "no", "yes", "no",…
-$ previoustest          &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ study_RDT_result      &lt;chr&gt; "no reactive", "no reactive", "reactive", "no re…
-$ type_ab               &lt;chr&gt; "", "", "IgM-IgG", "", "", "", "IgG", "IgM-IgG",…
-$ diabetes              &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ cardiovascular        &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ obesity               &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ fever                 &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "Had, …
-$ nasalcongestion       &lt;chr&gt; "Had, within 9 months", "Currently have", "no", …
-$ breathdifficulty      &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ generaldiscomfort     &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ diarrhea              &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ nausea                &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ cefalea               &lt;chr&gt; "no", "Currently have", "no", "no", "no", "no", …
-$ cough                 &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "Had, …
-$ sorethroat            &lt;chr&gt; "no", "no", "no", "no", "no", "no", "no", "no", …
-$ anysymptoms           &lt;chr&gt; "symptomatic", "symptomatic", "asymptomatic", "s…
-$ symptoms3cat          &lt;chr&gt; "Had, within 9 months", "Currently have", "no", …</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(peru)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="option-3-1" class="level3">
 <h3 class="anchored" data-anchor-id="option-3-1">Option 3</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"skimr"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/zr/fkpnf7r112g3q4sn6hqvwcmh0000gn/T//RtmpJNxc8h/downloaded_packages</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(peru)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="table table-sm table-striped">
-<caption>Data summary</caption>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Name</td>
-<td style="text-align: left;">peru</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Number of rows</td>
-<td style="text-align: left;">2014</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Number of columns</td>
-<td style="text-align: left;">26</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">_______________________</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Column type frequency:</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">character</td>
-<td style="text-align: left;">24</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">numeric</td>
-<td style="text-align: left;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">________________________</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Group variables</td>
-<td style="text-align: left;">None</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: character</strong></p>
-<table class="table table-sm table-striped">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 12%">
-<col style="width: 17%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 7%">
-<col style="width: 11%">
-<col style="width: 13%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">min</th>
-<th style="text-align: right;">max</th>
-<th style="text-align: right;">empty</th>
-<th style="text-align: right;">n_unique</th>
-<th style="text-align: right;">whitespace</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">PTID</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2014</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age_range</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">gender</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">job_status</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">workingoutsidehome</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">public_transportation</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">household_contact</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">previoustest</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">study_RDT_result</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">type_ab</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1513</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">diabetes</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cardiovascular</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">obesity</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">fever</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">nasalcongestion</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">breathdifficulty</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">generaldiscomfort</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">diarrhea</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">nausea</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cefalea</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cough</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sorethroat</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">anysymptoms</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">symptoms3cat</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: numeric</strong></p>
-<table class="table table-sm table-striped">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 12%">
-<col style="width: 18%">
-<col style="width: 9%">
-<col style="width: 7%">
-<col style="width: 3%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 6%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">sd</th>
-<th style="text-align: right;">p0</th>
-<th style="text-align: right;">p25</th>
-<th style="text-align: right;">p50</th>
-<th style="text-align: right;">p75</th>
-<th style="text-align: right;">p100</th>
-<th style="text-align: left;">hist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Heights..cm.</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">148.95</td>
-<td style="text-align: right;">37.33</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">125</td>
-<td style="text-align: right;">166</td>
-<td style="text-align: right;">175</td>
-<td style="text-align: right;">183</td>
-<td style="text-align: left;">▁▁▁▁▇</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">32.92</td>
-<td style="text-align: right;">22.46</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">89</td>
-<td style="text-align: left;">▇▆▅▃▂</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"skimr"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(peru)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="option-4" class="level3">
 <h3 class="anchored" data-anchor-id="option-4">Option 4</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"labelled"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/zr/fkpnf7r112g3q4sn6hqvwcmh0000gn/T//RtmpJNxc8h/downloaded_packages</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">look_for</span>(peru)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> pos variable              label col_type values
- 1   PTID                  —     chr            
- 2   Heights..cm.          —     dbl            
- 3   age_range             —     chr            
- 4   age                   —     int            
- 5   gender                —     chr            
- 6   job_status            —     chr            
- 7   workingoutsidehome    —     chr            
- 8   public_transportation —     chr            
- 9   household_contact     —     chr            
- 10  previoustest          —     chr            
- 11  study_RDT_result      —     chr            
- 12  type_ab               —     chr            
- 13  diabetes              —     chr            
- 14  cardiovascular        —     chr            
- 15  obesity               —     chr            
- 16  fever                 —     chr            
- 17  nasalcongestion       —     chr            
- 18  breathdifficulty      —     chr            
- 19  generaldiscomfort     —     chr            
- 20  diarrhea              —     chr            
- 21  nausea                —     chr            
- 22  cefalea               —     chr            
- 23  cough                 —     chr            
- 24  sorethroat            —     chr            
- 25  anysymptoms           —     chr            
- 26  symptoms3cat          —     chr            </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"labelled"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">look_for</span>(peru)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </div>
@@ -804,13 +303,13 @@ The downloaded binary packages are in
 <section id="option-1-2" class="level3">
 <h3 class="anchored" data-anchor-id="option-1-2">Option 1</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>describe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>describe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="option-2-2" class="level3">
 <h3 class="anchored" data-anchor-id="option-2-2">Option 2</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>summarize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>summarize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </div>
@@ -824,18 +323,13 @@ The downloaded binary packages are in
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"Hmisc"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/zr/fkpnf7r112g3q4sn6hqvwcmh0000gn/T//RtmpJNxc8h/downloaded_packages</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Hmisc<span class="sc">::</span><span class="fu">label</span>(peru<span class="sc">$</span>cardiovascular) <span class="ot">&lt;-</span> <span class="st">"cardiovascular diseases"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"Hmisc"</span>, <span class="at">repos=</span><span class="st">'http://cran.us.r-project.org'</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Hmisc<span class="sc">::</span><span class="fu">label</span>(peru<span class="sc">$</span>cardiovascular) <span class="ot">&lt;-</span> <span class="st">"cardiovascular diseases"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>label variable cardiovascular <span class="st">"cardiovascular diseases"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>label variable cardiovascular <span class="st">"cardiovascular diseases"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -850,22 +344,22 @@ The downloaded binary packages are in
 <section id="option-1-3" class="level3">
 <h3 class="anchored" data-anchor-id="option-1-3">Option 1</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(peru)[<span class="fu">names</span>(peru)<span class="sc">==</span> <span class="st">"Heights..cm."</span>] <span class="ot">&lt;-</span> <span class="st">"height"</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>Hmisc<span class="sc">::</span><span class="fu">label</span>(peru<span class="sc">$</span>height) <span class="ot">&lt;-</span> <span class="st">"height (cm)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(peru)[<span class="fu">names</span>(peru)<span class="sc">==</span> <span class="st">"Heights..cm."</span>] <span class="ot">&lt;-</span> <span class="st">"height"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Hmisc<span class="sc">::</span><span class="fu">label</span>(peru<span class="sc">$</span>height) <span class="ot">&lt;-</span> <span class="st">"height (cm)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="option-2-3" class="level3">
 <h3 class="anchored" data-anchor-id="option-2-3">Option 2</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">rename</span>(peru, <span class="st">"height"</span> <span class="ot">=</span> <span class="st">"Heights..cm."</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>Hmisc<span class="sc">::</span><span class="fu">label</span>(peru<span class="sc">$</span>height) <span class="ot">&lt;-</span> <span class="st">"height (cm)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">rename</span>(peru, <span class="st">"height"</span> <span class="ot">=</span> <span class="st">"Heights..cm."</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Hmisc<span class="sc">::</span><span class="fu">label</span>(peru<span class="sc">$</span>height) <span class="ot">&lt;-</span> <span class="st">"height (cm)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>rename Heightscm height</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>label variable cardiovascular <span class="st">"height (cm)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>rename Heightscm height</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>label variable height <span class="st">"height (cm)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -878,32 +372,15 @@ The downloaded binary packages are in
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(peru<span class="sc">$</span>rdt)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(peru<span class="sc">$</span>rdt)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To investigate which rows have missing values for the variable rdt we can subset the data set. Since <code>is.na(peru$rdt)</code> is a one dimensional logical vector, we need to specify which columns to select. Not specifying the columns (i.e.&nbsp;leaving it blank) will show you all columns.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>peru[<span class="fu">is.na</span>(peru<span class="sc">$</span>rdt),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] PTID                  height                age_range            
- [4] age                   gender                job_status           
- [7] workingoutsidehome    public_transportation household_contact    
-[10] previoustest          study_RDT_result      type_ab              
-[13] diabetes              cardiovascular        obesity              
-[16] fever                 nasalcongestion       breathdifficulty     
-[19] generaldiscomfort     diarrhea              nausea               
-[22] cefalea               cough                 sorethroat           
-[25] anysymptoms           symptoms3cat         
-&lt;0 rows&gt; (or 0-length row.names)</code></pre>
-</div>
-</div>
+<p><code>{r}, eval=FALSE peru[is.na(peru$rdt),]</code></p>
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>findit mdesc</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mdesc rdt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>findit mdesc</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mdesc rdt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -919,56 +396,56 @@ The downloaded binary packages are in
 <section id="option-1-4" class="level3">
 <h3 class="anchored" data-anchor-id="option-1-4">Option 1</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>peru[peru<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>peru<span class="sc">==</span><span class="st">"Currently have"</span>] <span class="ot">&lt;-</span> <span class="st">"yes"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>peru[peru<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>peru<span class="sc">==</span><span class="st">"Currently have"</span>] <span class="ot">&lt;-</span> <span class="st">"yes"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="option-2-4" class="level3">
 <h3 class="anchored" data-anchor-id="option-2-4">Option 2</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">mutate</span>(peru, </span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="at">fever =</span> <span class="fu">ifelse</span>(fever<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>fever<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, fever),</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="at">nasalcongestion =</span> <span class="fu">ifelse</span>(nasalcongestion<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>nasalcongestion<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, nasalcongestion),</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="at">breathdifficulty =</span> <span class="fu">ifelse</span>(breathdifficulty<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>breathdifficulty<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, breathdifficulty),</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="at">generaldiscomfort =</span> <span class="fu">ifelse</span>(generaldiscomfort<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>generaldiscomfort<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, generaldiscomfort),</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="at">diarrhea =</span> <span class="fu">ifelse</span>(diarrhea<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>diarrhea<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, diarrhea),</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="at">nausea =</span> <span class="fu">ifelse</span>(nausea<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>nausea<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, nausea),</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="at">cefalea =</span> <span class="fu">ifelse</span>(cefalea<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>cefalea<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, cefalea),</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="at">cough =</span> <span class="fu">ifelse</span>(cough<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>cough<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, cough),</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="at">sorethroat =</span> <span class="fu">ifelse</span>(sorethroat<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>sorethroat<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, sorethroat),</span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="at">symptoms3cat =</span> <span class="fu">ifelse</span>(sorethroat<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>sorethroat<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, symptoms3cat)</span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">mutate</span>(peru, </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="at">fever =</span> <span class="fu">ifelse</span>(fever<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>fever<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, fever),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="at">nasalcongestion =</span> <span class="fu">ifelse</span>(nasalcongestion<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>nasalcongestion<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, nasalcongestion),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="at">breathdifficulty =</span> <span class="fu">ifelse</span>(breathdifficulty<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>breathdifficulty<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, breathdifficulty),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="at">generaldiscomfort =</span> <span class="fu">ifelse</span>(generaldiscomfort<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>generaldiscomfort<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, generaldiscomfort),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="at">diarrhea =</span> <span class="fu">ifelse</span>(diarrhea<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>diarrhea<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, diarrhea),</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="at">nausea =</span> <span class="fu">ifelse</span>(nausea<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>nausea<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, nausea),</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="at">cefalea =</span> <span class="fu">ifelse</span>(cefalea<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>cefalea<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, cefalea),</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="at">cough =</span> <span class="fu">ifelse</span>(cough<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>cough<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, cough),</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="at">sorethroat =</span> <span class="fu">ifelse</span>(sorethroat<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>sorethroat<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, sorethroat),</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="at">symptoms3cat =</span> <span class="fu">ifelse</span>(sorethroat<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span>sorethroat<span class="sc">==</span><span class="st">"Currently have"</span>, <span class="st">"yes"</span>, symptoms3cat)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="option-3-2" class="level3">
 <h3 class="anchored" data-anchor-id="option-3-2">Option 3</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">mutate</span>(peru, </span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(fever<span class="sc">:</span>sorethroat, symptoms3cat),</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="fu">case_when</span>(.<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span> .<span class="sc">==</span><span class="st">"Currently have"</span><span class="sc">~</span><span class="st">"yes"</span>,</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(.<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span> .<span class="sc">==</span><span class="st">"Currently have"</span>) <span class="sc">~</span> .)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">mutate</span>(peru, </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(fever<span class="sc">:</span>sorethroat, symptoms3cat),</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="fu">case_when</span>(.<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span> .<span class="sc">==</span><span class="st">"Currently have"</span><span class="sc">~</span><span class="st">"yes"</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(.<span class="sc">==</span><span class="st">"Had, within 9 months"</span><span class="sc">|</span> .<span class="sc">==</span><span class="st">"Currently have"</span>) <span class="sc">~</span> .)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="option-4-1" class="level3">
 <h3 class="anchored" data-anchor-id="option-4-1">Option 4</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">mutate</span>(peru, </span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">across</span>(<span class="at">.cols =</span> fever<span class="sc">:</span>sorethroat,</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="fu">recode</span>(.x, <span class="st">"Had, within 9 months"</span> <span class="ot">=</span> <span class="st">"yes"</span>, <span class="st">"Currently have"</span> <span class="ot">=</span> <span class="st">"yes"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>peru <span class="ot">&lt;-</span> <span class="fu">mutate</span>(peru, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">across</span>(<span class="at">.cols =</span> fever<span class="sc">:</span>sorethroat,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="fu">recode</span>(.x, <span class="st">"Had, within 9 months"</span> <span class="ot">=</span> <span class="st">"yes"</span>, <span class="st">"Currently have"</span> <span class="ot">=</span> <span class="st">"yes"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </div>
 <div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>replace fever <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> fever <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>fever<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>replace nasalcongestion <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> nasalcongestion <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>nasalcongestion<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>replace breathdifficulty <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> breathdifficulty <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>breathdifficulty<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>replace generaldiscomfort <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> generaldiscomfort <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>generaldiscomfort<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>replace diarrhea <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> diarrhea <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>diarrhea<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>replace nausea <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> nausea <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>nausea<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>replace cefalea <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> cefalea <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>cefalea<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>replace cough <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> cough <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>cough<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>replace sorethroat <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> sorethroat <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>sorethroat<span class="ot">=</span><span class="st">"Currently have"</span></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>replace symotoms3cat <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> symotoms3cat <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>symotoms3cat<span class="ot">=</span><span class="st">"Currently have"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>replace fever <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> fever <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>fever<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>replace nasalcongestion <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> nasalcongestion <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>nasalcongestion<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>replace breathdifficulty <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> breathdifficulty <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>breathdifficulty<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>replace generaldiscomfort <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> generaldiscomfort <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>generaldiscomfort<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>replace diarrhea <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> diarrhea <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>diarrhea<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>replace nausea <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> nausea <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>nausea<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>replace cefalea <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> cefalea <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>cefalea<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>replace cough <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> cough <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>cough<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>replace sorethroat <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> sorethroat <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>sorethroat<span class="ot">=</span><span class="st">"Currently have"</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>replace symotoms3cat <span class="ot">=</span> <span class="st">"yes"</span> <span class="cf">if</span> symotoms3cat <span class="ot">=</span> <span class="st">"Had, within 9 months"</span><span class="sc">|</span>symotoms3cat<span class="ot">=</span><span class="st">"Currently have"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

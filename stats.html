@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -54,6 +117,22 @@ ul.task-list{list-style: none;}
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 </head>
 
@@ -100,7 +179,33 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link active" data-scroll-target="#data-types">Data types</a>
+  <ul class="collapse">
+  <li><a href="#types" id="toc-types" class="nav-link" data-scroll-target="#types">Types</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  <li><a href="#measures-of-frequency" id="toc-measures-of-frequency" class="nav-link" data-scroll-target="#measures-of-frequency">Measures of frequency</a></li>
+  <li><a href="#measures-of-association" id="toc-measures-of-association" class="nav-link" data-scroll-target="#measures-of-association">Measures of association</a></li>
+  </ul></li>
+  <li><a href="#sampling" id="toc-sampling" class="nav-link" data-scroll-target="#sampling">Sampling</a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive statistics</a>
+  <ul class="collapse">
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode">Mode</a></li>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range">Range</a></li>
+  <li><a href="#quartiles" id="toc-quartiles" class="nav-link" data-scroll-target="#quartiles">Quartiles</a></li>
+  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance">Variance</a></li>
+  <li><a href="#covariance" id="toc-covariance" class="nav-link" data-scroll-target="#covariance">Covariance</a></li>
+  <li><a href="#visual-tools" id="toc-visual-tools" class="nav-link" data-scroll-target="#visual-tools">Visual tools</a></li>
+  </ul></li>
+  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis testing</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -121,8 +226,338 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<p>Quantitative analysis analyses real-world phenomena using numbers. To make valid descriptive and causal inferences from the particular to the general, quantiative methods tend to rely on statistical methods. In addition, statistical models can also be used for prediction. In this section, we will focus on descriptive and causal inference.</p>
+<p>Data for quantitative analysis is typically organzied in data sets. Data sets structure data in tables, where each observation is saved in one row, and each attribute or variable is saved in one column.</p>
+<section id="data-types" class="level2">
+<h2 class="anchored" data-anchor-id="data-types">Data types</h2>
+<section id="types" class="level3">
+<h3 class="anchored" data-anchor-id="types">Types</h3>
+<p>There are different types of numeric data. The types of data determines what kind of analysis makes sense and how data should be visualized. Broadly, each type can be categorized as being categocial or numeric data.</p>
+<section id="categorical-data" class="level4">
+<h4 class="anchored" data-anchor-id="categorical-data">Categorical data</h4>
+<p>Categorical data encompass all quantitative data types that are not a meaningful measurements by themselves and thus do not convey magnitude. Furthermore, they can only take on limited values or levels. As a result, you cannot apply any meaningful arithemtic operations like addition or subtraction to categorical data. Examples include gender, blood type, consumer satisfaction, and agreement.</p>
+<p>Categorical data can be further split into <strong>nominal</strong> and <strong>ordinal</strong> data. Nominal data falls into clear categories. The categories cannot be ordered or ranked and represent a property beyond their value. For example, we can assign each blood type a numeric value but the numeric value has no meaning. Ordinal data can be ordered from low to high. Examples include measures of satisfaction or agreement.</p>
+</section>
+<section id="numerical-data" class="level4">
+<h4 class="anchored" data-anchor-id="numerical-data">Numerical data</h4>
+<p>Numerical data has a natural and inherent meaning. You can apply meaningful arithmatic operations to the data. Examples include measures of height, weight, temperature, or counts.</p>
+<p>Numerical data is either <strong>discrete</strong> or <strong>continuous</strong>. Discrete data can only take on integer values, which are countable. One example of discrete data are counts often found in census data. Continuous data can take any values within their respective domain. Generally, continuous data is thus not countable.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Countability
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Countability refers to the fact that, in theory, it is possible to count all numbers between any two numbers. More technically, a set of numbers is countable if it can be mapped one-to-one to the set of integers. In the case of continuous data, values can be infinitly precise and there are thus infinitely many numbers between any two values.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<p>Quantitative data can be obtained through various sources. Common examples include:</p>
+<ul>
+<li>Interviews or surveys (incl.&nbsp;seroprevalence surveys)</li>
+<li>Employment records</li>
+<li>Medical records</li>
+<li>Death certificates</li>
+<li>Institutions or agencies</li>
+</ul>
+<p>In recent years, computational advances have allowed researchers to turn ever more phenomena into data. For example, text, image, audio, and video formats have been turned into numeric data and thus made analysable through statistical methods.</p>
+</section>
+<section id="measures-of-frequency" class="level3">
+<h3 class="anchored" data-anchor-id="measures-of-frequency">Measures of frequency</h3>
+<p>As described above, quantitative analysis uses numbers to measure and analyse phenomena. Besides counts, ratios, proportions, and rates are commonly used measures of frequency.</p>
+<section id="ratios" class="level4">
+<h4 class="anchored" data-anchor-id="ratios">Ratios</h4>
+<p>Ratios measure the relative magnitute of two quantities. That is, they measure how many times one quanity is bigger than another quantity. These quantities do not need to be related.</p>
+<p><span class="math display">\text{ratio} = \frac{\text{quantity 1}}{\text{quantity 2}}</span></p>
+<p>Ratios are continous quantites between 0 and infinity. If the ratio is smaller than <span class="math inline">1</span>, the quanitity in the denominator is smaller than the quantity in the numerator. If the ratio is equal to 1, the two quantities are the same. If the ratio is larger than 1, the quantity in the numerator is larger.</p>
+<p>Examples of ratios include the odds ratio, which compares the magnitude of the odds of two events.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Odds
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Mathematical odds are ratios of probabilities of an event occuring relative to the event not occuring. If <span class="math inline">A</span> is our event we can write,</p>
+<p><span class="math display">\text{odds} = \frac{\text{P(A)}}{\text{1 - P(A)}}</span></p>
+<p>Odds ratios compare the magnitude of the odds of two events. If <span class="math inline">A</span> and <span class="math inline">B</span> are our events, we write</p>
+<p><span class="math display">\text{odds ratio} = \frac{\text{odds(A)}}{\text{odds(B)}}</span></p>
+</div>
+</div>
+</div>
+<p>Further examples of ratios in the field of epidemiology include</p>
+<ul>
+<li>risk ratios</li>
+<li>death-to-case ratios</li>
+<li>standardized mortality ratios</li>
+</ul>
+<p>We can obtain ratios in R and stata through simple arithmetics. For example, if we wished to calculate the ratio of under 18 year olds and adults for our exercise data set, we could use the following code.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>age_ratio <span class="ot">&lt;-</span> <span class="fu">sum</span>(peru<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">18</span>) <span class="sc">/</span> <span class="fu">sum</span>(peru<span class="sc">$</span>age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>numerator <span class="sc">/</span> denominator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="proportions" class="level4">
+<h4 class="anchored" data-anchor-id="proportions">Proportions</h4>
+<p>Proportions are a type of ratio. Unlike some ratios, proportions measure the relative magnitude of a subset to its superset. If <span class="math inline">A_1</span> is a subset of <span class="math inline">A</span>, the proption of <span class="math inline">A_1</span> to <span class="math inline">A</span> can be expressed as</p>
+<p><span class="math display">\text{proportion} = \frac{\text{subgroup}}{\text{whole}}</span></p>
+<p>Proportions are continuous measures as well, yet unlike other ratios, they are bounded between 0 and 1. Proportions are commonly presented as percentages, or fractions.</p>
+<p>An example of a proportion is the point prevalence, which divides the total population at a specific time by the number of active cases in the population.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Prevalence
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Prevalence is a measure of the number of active cases of a disease in specific period of time. Point prevelance measures prevalence not across a period of time but rather at a specific point in time. For example, prevalence on a certain date is considered point prevalence.</p>
+<p><span class="math display">\text{point prevalence} = \frac{\text{active cases of a disease}}{\text{population}}</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="rates" class="level4">
+<h4 class="anchored" data-anchor-id="rates">Rates</h4>
+</section>
+</section>
+<section id="measures-of-association" class="level3">
+<h3 class="anchored" data-anchor-id="measures-of-association">Measures of association</h3>
+</section>
+</section>
+<section id="sampling" class="level2">
+<h2 class="anchored" data-anchor-id="sampling">Sampling</h2>
+<p>Often the goal of research is to determine measurements of a target population. If the region is large, reaching all subjects in a target population can be costly both in terms of money and time.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Target population
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The target population refers to the population under consideration in a study. This can be all residents of a country, or specific subgroups.</p>
+</div>
+</div>
+</div>
+<p>The target population is often different from the study population. The study population may be limited to adults, or to subjects living in a specific area. For example, if we wish to generalize about the population at risk in the entire country, we might be limited to sampling from the population at risk from a specific sub-national region. To be able to generalize from the study population to the target population the study population needs to be reasonably representative of the target population as a whole.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Study population
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The study population refers to all subjects in the target population to which the researcher has access, and from which the researcher can sample.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="descriptive-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive statistics</h2>
+<p>Descriptive statistics only involve the sampled data. The immediate aim is not to generalize to the target population but rather to summarize and describe the sample.</p>
+<section id="mean" class="level3">
+<h3 class="anchored" data-anchor-id="mean">Mean</h3>
+<p>The artihmetic mean is a measure of central tendency. That is, it is a measure for the center of the sampled values or the most typical value.</p>
+<p>The sample mean is the sum of all observed values across the sample divided by the sample size. More technically,</p>
+<p><span class="math display">\bar{x} = \frac{1}{N} \times \sum_{i=1}^N{x_i}</span></p>
+<p><span class="math inline">\bar{X}</span> is typically the symbol for the sample mean of variable <span class="math inline">X</span>. <span class="math inline">N</span> is typically the symbol for the sample size. <span class="math inline">\sum</span> is the symbol for a sum. In out case, the sum contains all observations of the variable <span class="math inline">x</span> from <span class="math inline">i = 1</span> to the last observation with index <span class="math inline">N</span>. Assuming <span class="math inline">N= 3</span> values of <span class="math inline">X</span> were observed, <span class="math inline">X_1, X_2, X_3</span>. To calculate the mean, we would sum all three values, <span class="math inline">X_1 + X_2 + X_3</span> and then divide it by <span class="math inline">N = 3</span>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If we transform variables by applying a function to them, such as converting all values from centimeters to meters, this propagates linearly to the mean. In other words if we multiply all our values by 100, the mean will also be 100 times higher. This is <em>not</em> a general property of the mean, however, and only holds for linear changes to our variable.</p>
+<p><span class="math display"> \frac{1}{N} \times \sum{a + b \times x_i} = a + b \times \bar{x} </span></p>
+<p>Furthermore, the sum of the means of two or more variables is equal to the mean of their sums.</p>
+<p><span class="math display">\frac{1}{N} \sum{(x_i + y_i)} = \bar{x} + \bar{y} </span></p>
+</div>
+</div>
+<p>Both R and Stata have integrated functions to calculate the mean of quantitative data. They take a variable as input and produce the arithmetic mean as the output. Stata also provides the 95% confidence interval.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mean var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The mean is very sensitive to outliers.</p>
+</div>
+</div>
+<p>As the mean requires that underlying observations can be summed and divided, the data needs to be numeric.</p>
+</section>
+<section id="median" class="level3">
+<h3 class="anchored" data-anchor-id="median">Median</h3>
+<p>The median is an alternative measure of central tendency. Half of the data are below, and the other half of the data are above this value. Compared to the mean, it is less affected by extreme values, or outliers.</p>
+<p>To obtain the median, we first order all observations of a variable from smallest to largest. Then, if the sample size is odd, the median is the middle value. If the sample size is even, we calculate the average between the two observations closest to “the middle”. The position of the median given an odd sample size can be calculated using <span class="math inline">m = \frac{(n+1)}{2}</span>. The position of the next closest observations to the median given an even sample size can be calculated using <span class="math inline">m_{l} = \frac{n}{2}</span> and <span class="math inline">m_{s} = \frac{n}{2} + 1</span>.</p>
+<p>Similar to the mean, the median can be directly calculated in R and Stata. Both programs take the observed values as input and produce a single statistic.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tabstat var, <span class="fu">s</span>(median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Unlike the mean, the median does not require the data to be numeric. However, you need to be able to order the underlying data. So the data need to be either numeric or ordinal.</p>
+</section>
+<section id="mode" class="level3">
+<h3 class="anchored" data-anchor-id="mode">Mode</h3>
+<p>The mode is another measure of central tendency. It is the most frequently occuring value in a sample.</p>
+<p>There is no direct implementation to determine the mode in either R or Stata. The easiest way is to create frequency tables and find the most frequent value “by hand”.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tab var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>If the data is neither numeric or ordinal, the mode is the most apt measure of central tendency.</p>
+</section>
+<section id="range" class="level3">
+<h3 class="anchored" data-anchor-id="range">Range</h3>
+<p>The range is a measure of spread of the observed values. It is the difference between the maximum and the minimum.</p>
+</section>
+<section id="quartiles" class="level3">
+<h3 class="anchored" data-anchor-id="quartiles">Quartiles</h3>
+<p>Quartiles divide the sorted data into four equally sized sets. That is, the first quarter <span class="math inline">Q_1</span> is the upper boundary of the group that contains the bottom 25% of the data. The second quarter <span class="math inline">Q_2</span> is the median dividing the data set into two equal halves.</p>
+</section>
+<section id="variance" class="level3">
+<h3 class="anchored" data-anchor-id="variance">Variance</h3>
+<p>The sample variance is another measure of spread. It is the sum of squared differences between each observed value and the mean, divided by <span class="math inline">n-1</span>. Formally, the variance is calculated using</p>
+<p><span class="math display">s^2 = \frac{1}{N-1} \sum_{i = 1}^N (x_i - \bar{x})^2</span></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Linear transformation of variables does not propagate linearly to variance. That is, added constants cancel out and constant factors are squared.</p>
+<p><span class="math display">\frac{1}{N-1} \sum_{i = 1}^N (a+b \times x_i - (a + b \times \bar{x}))^2 = b^2 \times s^2</span></p>
+</div>
+</div>
+</section>
+<section id="covariance" class="level3">
+<h3 class="anchored" data-anchor-id="covariance">Covariance</h3>
+<p>Covariance measures linear dependence between variables. In other words, it measures how two variables vary together. Formally, to determine the sample variance, we can write</p>
+<p><span class="math display">\frac{1}{N-1} \sum_{i = 1}^N ((x_i-\bar{x})(y_i-\bar{y})) = s_{xy}</span></p>
+<p>The range of the covariance is the set of real numbers.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Covariance is sensitive to unit of measurement. That is, if the variables are linearly transformed the covariance changes.</p>
+</div>
+</div>
+</section>
+<section id="visual-tools" class="level3">
+<h3 class="anchored" data-anchor-id="visual-tools">Visual tools</h3>
+<section id="frequency-tables" class="level4">
+<h4 class="anchored" data-anchor-id="frequency-tables">Frequency tables</h4>
+</section>
+<section id="boxplots" class="level4">
+<h4 class="anchored" data-anchor-id="boxplots">Boxplots</h4>
+</section>
+<section id="histograms" class="level4">
+<h4 class="anchored" data-anchor-id="histograms">Histograms</h4>
+</section>
+</section>
+</section>
+<section id="hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis testing</h2>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Using the statistical software of your choosing,</p>
+<ol class="example" type="1">
+<li>Calculate the ratio of female to male participants</li>
+<li>Calculate the fever point prevalence of the sample</li>
+<li></li>
+<li>Create a ladder plot of</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
