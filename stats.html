@@ -750,10 +750,71 @@ Alternative hypothesis
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p>The alternative hypothesis, also called the research hypothesis, contradicts the null hypothesis. The alternative hypothesis is written as <span class="math inline">H_1</span> or <span class="math inline">H_a</span>.</p>
 </div>
 </div>
 </div>
+<p>Examples of null and alternative hypotheses are: + <span class="math inline">H_0: \mu = \bar{x}</span> <span class="math inline">H_1: \mu \neq \bar{x}</span> + <span class="math inline">H_0: \mu = \bar{x}</span> <span class="math inline">H_1: \mu &gt; \bar{x}</span> + <span class="math inline">H_0: \mu = \bar{x}</span> <span class="math inline">H_1: \mu &lt; \bar{x}</span></p>
+<p>Note that the first example requires a <strong>two-tailed test</strong>, whereas the last two examples require a <strong>one-tailed tests</strong>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Two-tailed hypothesis test
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A two-tailed hypothesis test has a two-sided alternative hypothesis. That is, the alternative hypothesis states that the population quantity of interest is either larger <em>or</em> smaller than the one specified in the null hypothesis.</p>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+One-tailed hypothesis test
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A one-sided hypothesis test is either left-sided or right-sided, meaning that the population quantity of interest is either less than or greater than the one specified in the null hypothesis.</p>
+</div>
+</div>
+</div>
+<section id="errors" class="level4">
+<h4 class="anchored" data-anchor-id="errors">Errors</h4>
+<p>The goal of hypothesis testing is to reject or fail to reject <span class="math inline">H_0</span> with a specific degree of certainty. However, hypothesis testing can lead to incorrect conclusions. There are two errors: <strong>type 1</strong> and <strong>type 2</strong> errors.</p>
+<p><strong>Type 1</strong> errors describe the scenario when <span class="math inline">H_0</span> is true but it is rejected. That is, after our test we conclude that <span class="math inline">H_0</span> is false, but it is in fact true.</p>
+<p><strong>Type 2</strong> errors describe the scenario when <span class="math inline">H_1</span> is true but it we failed to reject <span class="math inline">H_0</span>. That is, after our test we conclude that <span class="math inline">H_1</span> is false, but it is in fact true.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">H_0</span> is true</th>
+<th><span class="math inline">H_0</span> is false</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reject <span class="math inline">H_0</span></td>
+<td><strong>Type I</strong></td>
+<td><strong>True</strong></td>
+</tr>
+<tr class="even">
+<td>Fail to reject <span class="math inline">H_0</span></td>
+<td><strong>True</strong></td>
+<td><strong>Type II</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="linear-regression" class="level3">
 <h3 class="anchored" data-anchor-id="linear-regression">Linear regression</h3>
@@ -769,11 +830,15 @@ Alternative hypothesis
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <p>Using the statistical software of your choosing,</p>
 <ol class="example" type="1">
-<li>Calculate the ratio of female to male participants</li>
-<li>Produce a boxplot of age and a histogram of the age groups</li>
-<li>Calculate the fever point prevalence of the sample</li>
-<li></li>
-<li>Create a ladder plot of</li>
+<li>calculate the ratio of female to male participants</li>
+<li>calculate the fever point prevalence of the sample</li>
+<li>calculate the relative risk of testing positive for COVID-19 by gender</li>
+<li>produce a boxplot of age and a histogram of the age groups</li>
+<li>using two-way frequency tables, statisfy all symptoms first by age, then gender</li>
+<li>estimate a linear regression model, regressing test result on age, gender, occupation, publive_transport, and family_contact</li>
+<li>determine the model fit and compare different variations pf the model. What could be an issue with the coefficients?</li>
+<li>estimate a logistic regression model, regressing test result on age, gender, occupation, publive_transport, and family_contact</li>
+<li>create at least one latter plot and state the effect size as odds ratios</li>
 </ol>
 
 
