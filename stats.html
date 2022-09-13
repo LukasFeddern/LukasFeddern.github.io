@@ -159,15 +159,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li class="nav-item">
     <a class="nav-link" href="./basics.html">Basics</a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./stats.html" aria-current="page">Quantitative Analysis</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./survey.html">Survey Data Analysis</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./resources.html">Resources</a>
-  </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
@@ -188,7 +179,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#types" id="toc-types" class="nav-link" data-scroll-target="#types">Types</a></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   <li><a href="#measures-of-frequency" id="toc-measures-of-frequency" class="nav-link" data-scroll-target="#measures-of-frequency">Measures of frequency</a></li>
-  <li><a href="#measures-of-association" id="toc-measures-of-association" class="nav-link" data-scroll-target="#measures-of-association">Measures of association</a></li>
   </ul></li>
   <li><a href="#sampling" id="toc-sampling" class="nav-link" data-scroll-target="#sampling">Sampling</a></li>
   <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive statistics</a>
@@ -250,16 +240,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Numerical data has a natural and inherent meaning. You can apply meaningful arithmatic operations to the data. Examples include measures of height, weight, temperature, or counts.</p>
 <p>Numerical data is either <strong>discrete</strong> or <strong>continuous</strong>. Discrete data can only take on integer values, which are countable. One example of discrete data are counts often found in census data. Continuous data can take any values within their respective domain. Generally, continuous data is thus not countable.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Countability
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Countability refers to the fact that, in theory, it is possible to count all numbers between any two numbers. More technically, a set of numbers is countable if it can be mapped one-to-one to the set of integers. In the case of continuous data, values can be infinitly precise and there are thus infinitely many numbers between any two values.</p>
+</div>
 </div>
 </div>
 </section>
@@ -310,6 +303,23 @@ Odds
 <li>death-to-case ratios</li>
 <li>standardized mortality ratios</li>
 </ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Risk ratio
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Risk ratios are ratios of the risk of two seperate groups of the population. For example, if we are interested in risk factors and the risk of disease we could calculate the ratio of risk for those with the risk factor to the risk for those without the risk factor. A ratio larger than 1 would suggest an increased risk of infection for those with the risk factor.</p>
+<p><span class="math display">\text{risk ratio} = \frac{\frac{\text{subgroup(A)}}{\text{total(A)}}}{\frac{\text{subgroup(B)}}{\text{total(B)}}}</span></p>
+</div>
+</div>
+</div>
 <p>We can obtain ratios in R and stata through simple arithmetics. For example, if we wished to calculate the ratio of under 18 year olds and adults for our exercise data set, we could use the following code.</p>
 <div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Stata</a></li></ul>
@@ -321,7 +331,12 @@ Odds
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>count <span class="cf">if</span> age <span class="sc">&lt;</span> <span class="dv">18</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>generate age_u <span class="ot">=</span> <span class="fu">r</span>(N)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>count <span class="cf">if</span> age <span class="sc">&gt;=</span> <span class="dv">18</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>generate age_o <span class="ot">=</span> <span class="fu">r</span>(N)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>generate age_ratio <span class="ot">=</span> age_u <span class="sc">/</span> age_o</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -334,7 +349,7 @@ Odds
 <p>Proportions are continuous measures as well, yet unlike other ratios, they are bounded between 0 and 1. Proportions are commonly presented as percentages, or fractions.</p>
 <p>An example of a proportion is the point prevalence, which divides the total population at a specific time by the number of active cases in the population.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -343,7 +358,7 @@ Prevalence
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Prevalence is a measure of the number of active cases of a disease in specific period of time. Point prevelance measures prevalence not across a period of time but rather at a specific point in time. For example, prevalence on a certain date is considered point prevalence.</p>
 <p><span class="math display">\text{point prevalence} = \frac{\text{active cases of a disease}}{\text{population}}</span></p>
@@ -356,7 +371,7 @@ Prevalence
 <h4 class="anchored" data-anchor-id="rates">Rates</h4>
 <p>Rates typically measure proportions over a specified period of time. In the context of diseases, rates thus measure how <em>fast</em> something occurs in a given population.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -365,7 +380,7 @@ Incidence
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The incidence rate measures the number of new cases within the at risk population across a specified period of time.</p>
 <p><span class="math display">\text{incidence rate} = \frac{\text{new cases of a disease during total of time}}{\text{population}\times \text{time periods}}</span></p>
@@ -375,22 +390,12 @@ Incidence
 </div>
 </section>
 </section>
-<section id="measures-of-association" class="level3">
-<h3 class="anchored" data-anchor-id="measures-of-association">Measures of association</h3>
-<p>Often we are interested not just in measures of frequency of diseases but also in associations of occurance with exposure to environmental factors, or personal characteristics.</p>
-<section id="relative-risk" class="level4">
-<h4 class="anchored" data-anchor-id="relative-risk">Relative risk</h4>
-</section>
-<section id="section" class="level4">
-<h4 class="anchored" data-anchor-id="section"></h4>
-</section>
-</section>
 </section>
 <section id="sampling" class="level2">
 <h2 class="anchored" data-anchor-id="sampling">Sampling</h2>
 <p>Often the goal of research is to determine measurements of a target population. If the region is large, reaching all subjects in a target population can be costly both in terms of money and time.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -399,7 +404,7 @@ Target population
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The target population refers to the population under consideration in a study. This can be all residents of a country, or specific subgroups.</p>
 </div>
@@ -407,7 +412,7 @@ Target population
 </div>
 <p>The target population is often different from the study population. The study population may be limited to adults, or to subjects living in a specific area. For example, if we wish to generalize about the population at risk in the entire country, we might be limited to sampling from the population at risk from a specific sub-national region. To be able to generalize from the study population to the target population the study population needs to be reasonably representative of the target population as a whole.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -416,7 +421,7 @@ Study population
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The study population refers to all subjects in the target population to which the researcher has access, and from which the researcher can sample.</p>
 </div>
@@ -453,11 +458,11 @@ Note
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mean var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mean var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -472,7 +477,7 @@ Danger
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The mean is very sensitive to outliers.</p>
+<p>The mean is sensitive to outliers.</p>
 </div>
 </div>
 <p>As the mean requires that underlying observations can be summed and divided, the data needs to be numeric.</p>
@@ -486,11 +491,11 @@ Danger
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tabstat var, <span class="fu">s</span>(median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tabstat var, <span class="fu">s</span>(median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -506,12 +511,12 @@ Danger
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tab var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tab var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -548,11 +553,11 @@ Note
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tabstat var, <span class="fu">s</span>(variance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tabstat var, <span class="fu">s</span>(variance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -580,11 +585,11 @@ Danger
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>corr  var1 var2, cov</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>corr  var1 var2, cov</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -601,11 +606,11 @@ Danger
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>corr  var1 var2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>corr  var1 var2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -616,16 +621,16 @@ Danger
 <p>Graphical visualizations are powerful tools to understand and communicate statistics. Frequency tables, histograms, boxplots, and scatterplots are some introductory examples of such visualization tools. Note that the code examples are very basic. For more sophisticated and arguably prettier implementations please consult the ‘Resources’ tab.</p>
 <section id="frequency-tables" class="level4">
 <h4 class="anchored" data-anchor-id="frequency-tables">Frequency tables</h4>
-<p>Frequency tables are tables that summarize your data. For discrete, ordinal, and nominal data, frequency tables show the count of each value. Continous data have to be binned to be represented in frequency tables.</p>
+<p>Frequency tables are tables that summarize your data. For discrete, ordinal, and nominal data, frequency tables show the count of each value. Continuous data have to be binned to be represented in frequency tables.</p>
 <div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tab var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tab var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -635,11 +640,11 @@ Danger
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tab var1 var2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tab var1 var2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -647,18 +652,18 @@ Danger
 </section>
 <section id="histograms" class="level4">
 <h4 class="anchored" data-anchor-id="histograms">Histograms</h4>
-<p>Histograms display the frequency of each value observed in the data set. It displays either the absolute or relative frequency on the y-axis and each value on the x-axis. Similar to frequency tables, histograms display discrete or categorical data most easily. Continuous data has to be binned before its frequency is presented in a histogram.</p>
+<p>Histograms display the frequency of each value observed in the data set. It displays either the absolute or relative frequency on the y-axis and each value on the x-axis. Histograms display binned, numeric data.</p>
 <div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
-<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(var1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df)<span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_hist</span>(<span class="fu">aes</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(var1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df)<span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_hist</span>(<span class="fu">aes</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>histogram v1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>histogram v1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -668,7 +673,7 @@ Danger
 <h4 class="anchored" data-anchor-id="boxplots">Boxplots</h4>
 <p>Boxplots are graphical representations of quartiles and outliers of a distribution. They consist of a box outlining the range between the first quartile, <span class="math inline">Q_1</span>,and the third quartile, <span class="math inline">Q_3</span>. The line dividing the box represents the median. The lines extending from the edges of box are called whiskers. The lines end at the adjacent values.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -677,7 +682,7 @@ Adjacent values
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Adjacent values describe the most extreme values that are <em>not</em> cosidered potential outliers.</p>
 </div>
@@ -693,12 +698,12 @@ Adjacent values
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">Stata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
-<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df)<span class="sc">+</span><span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>var))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df)<span class="sc">+</span><span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>var))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>graph box var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>graph box var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -706,7 +711,7 @@ Adjacent values
 </section>
 <section id="scatter-plots" class="level4">
 <h4 class="anchored" data-anchor-id="scatter-plots">Scatter plots</h4>
-<p>Scatter plots are graphical representations of observed value pairs of two variables in out data set. Each variable is represented by an axis and each value pair is a point. Note that scatter plots are largely used to display the replationship between numerical data.</p>
+<p>Scatter plots are graphical representations of observed value pairs of two variables in our data set. Each variable is represented by an axis and each value pair is a point. Note that scatter plots are largely used to display the replationship between numerical data.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="stats_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
@@ -717,12 +722,28 @@ Adjacent values
 </section>
 <section id="inferential-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="inferential-statistics">Inferential statistics</h2>
-<p>After summarizing and examing the sampled data, researchers often want to make more general claims about unknown population statistics. For example, after calculating the seroprevalence of a disease in the sample, a researcher wants to make claims about the seroprevalence in the target population. We call statistics estimated based on sampled data <em>estimates</em>. <em>Estimators</em> are functions that map to estimates that should be close to the <em>true</em> estimates. They take observed, sampled data as input.</p>
+<p>After summarizing and examing the sampled data, researchers often want to make more general claims about unknown population quantities. For example, after calculating the seroprevalence of a disease in the sample, a researcher wants to make claims about the seroprevalence in the target population. We call population quantities estimated based on sampled data <em>estimates</em>. <em>Estimators</em> are functions that map to estimates that should be close to the <em>true</em> population quantity. Estimators take observed, sampled data as input.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Statistic
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A statistic is any real-valued function of random variables. Examples include the sample mean <span class="math inline">\bar{x}</span>, the sample variance <span class="math inline">s^2</span>, and the minimum of <span class="math inline">X</span>, <span class="math inline">min(x)</span>.</p>
+</div>
+</div>
+</div>
 <section id="hypothesis-testing" class="level3">
 <h3 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis testing</h3>
 <p>Hypothesis tests are statistical tests that compare observed values against hypothesized values. In other words, hypothesis testing results in a rejection or failure to reject a null hypothesis. Rejection of the null hypothesis is done in favor of a research, or alternative, hypothesis.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -731,7 +752,7 @@ Null hypothesis
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The null hypothesis is the hypothesis to be tested. Often the null hypothsis is a <em>null</em> effect or equality. Note that we do not accept the null hypothesis but rather <strong>fail to reject</strong> it. The null hypothesis is written as <span class="math inline">H_0</span>.</p>
 </div>
@@ -739,7 +760,7 @@ Null hypothesis
 </div>
 <p>The goal of the researcher is typically to reject <span class="math inline">H_0</span> with a high statistical degree of certainty.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -748,16 +769,17 @@ Alternative hypothesis
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The alternative hypothesis, also called the research hypothesis, contradicts the null hypothesis. The alternative hypothesis is written as <span class="math inline">H_1</span> or <span class="math inline">H_a</span>.</p>
 </div>
 </div>
 </div>
+<p>The decision to reject the null hypothesis is based on the <strong>rejection region</strong> or <strong>critical region</strong>. If sample values are elements of the rejection region, <span class="math inline">H_0</span> is rejected. If sample values are elements of the complements of the rejection regions, that is if they are elements of the <strong>nonrejection region</strong>, we fail to reject <span class="math inline">H_0</span>.</p>
 <p>Examples of null and alternative hypotheses are: + <span class="math inline">H_0: \mu = \bar{x}</span> <span class="math inline">H_1: \mu \neq \bar{x}</span> + <span class="math inline">H_0: \mu = \bar{x}</span> <span class="math inline">H_1: \mu &gt; \bar{x}</span> + <span class="math inline">H_0: \mu = \bar{x}</span> <span class="math inline">H_1: \mu &lt; \bar{x}</span></p>
 <p>Note that the first example requires a <strong>two-tailed test</strong>, whereas the last two examples require a <strong>one-tailed tests</strong>.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -766,14 +788,14 @@ Two-tailed hypothesis test
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A two-tailed hypothesis test has a two-sided alternative hypothesis. That is, the alternative hypothesis states that the population quantity of interest is either larger <em>or</em> smaller than the one specified in the null hypothesis.</p>
 </div>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -782,7 +804,7 @@ One-tailed hypothesis test
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A one-sided hypothesis test is either left-sided or right-sided, meaning that the population quantity of interest is either less than or greater than the one specified in the null hypothesis.</p>
 </div>
@@ -805,25 +827,522 @@ One-tailed hypothesis test
 <tr class="odd">
 <td>Reject <span class="math inline">H_0</span></td>
 <td><strong>Type I</strong></td>
-<td><strong>True</strong></td>
+<td><strong>Correct</strong></td>
 </tr>
 <tr class="even">
 <td>Fail to reject <span class="math inline">H_0</span></td>
-<td><strong>True</strong></td>
+<td><strong>Correct</strong></td>
 <td><strong>Type II</strong></td>
 </tr>
 </tbody>
 </table>
+<p>We can assign probabilities to committing both types of errors. The <strong>Type I</strong> error probability is called the <strong>significance level</strong> and is denoted by <span class="math inline">\alpha</span>. The <strong>Type II</strong> error probability is typically denoted by <span class="math inline">\beta</span>. <span class="math inline">1-\beta</span> is the called <strong>power</strong>.</p>
+</section>
+<section id="tests-about-a-single-mean" class="level4">
+<h4 class="anchored" data-anchor-id="tests-about-a-single-mean">Tests about a single mean</h4>
+<p>The following section will briefly describe hypothesis tests for inferences about a single mean. The <em>z-test</em>, and the <em>t-test</em> are both parametric tests that assume that the observed data is distributed normally. The <em>Wilcoxon signed rank test</em> relaxes that assumption.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Normal distribution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The normal distribution is a continuous, symmetric probability distribution. A probability distribution is the collection of probabilities of all possible values. The area of a probability distribution <em>must</em> sum to <span class="math inline">1</span> (probabilities above 1 are impossible). The normal distribution is bell shaped and centered at the mean. The curve is defined for all real values, that is, the distribution assigns probabilities <span class="math inline">p &gt; 0</span> to all real values <span class="math inline">(-\infty, \infty)</span>. However, the tails of the distribution</p>
+<p>Any normal distribution is defined by two values - the mean and the variance. That is why we write <span class="math inline">N(\mu, \sigma^2)</span> to describe a normal distribution by its mean <span class="math inline">\mu</span> and the variance <span class="math inline">\sigma^2</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="stats_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Generally, the normality assumption is not very strict and depends on the sample size and your own judgement. Normality is typically tested in R and Stata using normal plots or quantile-quantile plots. The goal is for points to be as close as possible to a diagonal line. There is no standard, however, for how much the data can deviate from a straight line.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="stats_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>qnorm var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<section id="z-test" class="level5">
+<h5 class="anchored" data-anchor-id="z-test">Z-test</h5>
+<p>The <em>z-test</em> is a hypothesis test for inferences about the population mean if the variance <span class="math inline">\sigma</span> of the population is known or the sample size is large (<span class="math inline">n &gt; 30</span>).</p>
+<p>The <em>z-test</em> compares the test statistic (the z-score) to the critical value, which is calculated based on the desired significance level <span class="math inline">\alpha</span>. The z-score is the standardized difference between the sample statistic (the sample mean) and the value specified in the null hypothesis. Formally,</p>
+<p><span class="math display">z = \frac{\bar{x}-\mu_0}{\sigma_{\bar{x}}}</span></p>
+<p><span class="math inline">\bar{x}</span> is our sample mean. <span class="math inline">\mu_0</span> is the mean specified in the null hypothesis. <span class="math inline">\sigma_{\bar{x}}</span> is the standard deviation of the sampling distribution of <span class="math inline">\bar{x}</span>. We know that <span class="math inline">\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}</span>. That is, the standard error of the mean is equal to the population standard deviation divided by the square root of the sample size. While we often do not know the true population variance, we can use our sample variance <span class="math inline">s^2</span> instead <strong>if the sample size is large enough</strong> (N &gt; 30). Generally, however, if the population variance is unknown, a <em>t-test</em> might be more appropriate.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Standard error
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The standard error is the standard deviation of a sampling distribution. That is, assuming we draw a large number of samples from our population, we get different estimates of a statistic. The standard deviation of the resulting distribution, which is called the sampling distribution, is called the standard error.</p>
+</div>
+</div>
+</div>
+<p>We obtain the rejection region based on our null and alternative hypotheses and the pre-determined significance level <span class="math inline">\alpha</span> - typically <span class="math inline">\alpha = 0.05</span>.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\alpha</span></th>
+<th>0.10</th>
+<th>0.05</th>
+<th>0.01</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>one-tailed</td>
+<td>-1.28 or 1.28</td>
+<td>-1.645 or 1.645</td>
+<td>-1.96 or 1.96</td>
+</tr>
+<tr class="even">
+<td>two-tailed</td>
+<td><span class="math inline">|1.645|</span></td>
+<td><span class="math inline">|1.96|</span></td>
+<td><span class="math inline">|2.58|</span></td>
+</tr>
+</tbody>
+</table>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <em>z-test</em> assumes that the test statistic is normally distributed and that the population variance is known. We thus need a sample size of at least 30 for the <em>z-score</em> to be distributed approximately normally and our sample approximation of the population variance to be close to the true population value (see also Central Limit Theorem).</p>
+</div>
+</div>
+<section id="example" class="level6">
+<h6 class="anchored" data-anchor-id="example">Example</h6>
+<p>We are interested in the mean height of five-year old children in a region of a country. For our study we sample 35 five-year olds randomly and find that the mean height is <span class="math inline">\bar{x} = 104 cm</span>. Based on the reference value for the country (114 cm) we want to determine if the sample deviates from the norm.</p>
+<p>The null and alternative hypotheses are:</p>
+<p><span class="math display">H_0: \mu = 114 </span></p>
+<p><span class="math display"> H_a: \mu &lt; 114 </span></p>
+<p>The signficance level is <span class="math inline">\alpha = 0.01</span>.</p>
+<p>Given a population standard deviation of 15, we calculate the z-score:</p>
+<p><span class="math display">z = \frac{104-114}{\frac{15}{\sqrt{35}}} = -3.944</span></p>
+<p>Because <span class="math inline">-3.944 &lt; -1.96</span> we reject the null hypothesis and it follows that the sample mean is signficantly different from the norm.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
+<div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> (<span class="fu">mean</span>(x) <span class="sc">-</span> h_0) <span class="sc">/</span> (<span class="fu">sd</span>(x) <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>tabstat var, <span class="fu">s</span>(sd)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>ztest var <span class="sc">==</span> h_0, <span class="fu">sd</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="t-test" class="level5">
+<h5 class="anchored" data-anchor-id="t-test">T-test</h5>
+<p>The <em>t-test</em> is an alternative to the <em>z-test</em> if the population standard deviation is unknown. Similar to the <em>z-test</em>, the <em>t-test</em> calculates a test statistic and tests whether the statistic is in the rejection region. <em>T-tests</em> can be one-tailed or two-tailed.</p>
+<p>Like the <em>z-score</em>, the <em>t-statistic</em> measures the standardized difference between the observed and the hypothesized mean. We calculate the t-statistic using</p>
+<p><span class="math display">t = \frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}</span></p>
+<p>Unlike the the <em>z-score</em>, the <em>t-statistic</em> is not assumed to be normally distributed. Instead it follows a <em>student’s t distribution</em>. The critical value thus depends in part on the degrees of freedom (d.f.). We thus write <span class="math inline">t_{\alpha, \text{d.f.}}</span> for the critical value at significance level <span class="math inline">\alpha</span>. Usually, statistics programs provide the critical value for you, otherwise you can look it up <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda3672.htm">here</a>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Degrees of freedom
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Degrees of freedom measure the number of independent, free values in a sample. The degrees of freedom equal <span class="math inline">n-1</span>, where <span class="math inline">n</span> is equal to the sample size. For illustration consider randomly sampling values from your sample without replacement. For each draw except the last you cannot be sure which value is next so <span class="math inline">n-1</span> values are free to vary.</p>
+</div>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <em>t-test</em> assumes that the test statistic is approximately t-distributed or that the sample size is sufficiently large. Unlike the <em>z-test</em> it assumes that the population variance is unknown.</p>
+</div>
+</div>
+<section id="example-1" class="level6">
+<h6 class="anchored" data-anchor-id="example-1">Example</h6>
+<p>We are interested in the mean weight of five-year old children in a region of a country. For our study we sample 35 five-year olds randomly and find that the mean weight is <span class="math inline">\bar{x} = 18 kg</span> and variance of our sample is <span class="math inline">s^2 = 9</span>. Based on the reference value for the country (20 kg) we want to determine if the sample deviates from the norm.</p>
+<p>The null and alternative hypotheses are:</p>
+<p><span class="math display">H_0: \mu = 20 </span></p>
+<p><span class="math display"> H_a: \mu &lt; 20 </span></p>
+<p>The signficance level is <span class="math inline">\alpha = 0.01</span>.</p>
+<p>With an unknown population variance, we calculate the estimate of <span class="math inline">\sigma</span>, <span class="math inline">\hat{\sigma} = s</span>:</p>
+<p><span class="math display">t = \frac{18-20}{3{\sqrt{35}}} = -0.113</span></p>
+<p>Because <span class="math inline">-0.113 &gt; t_{0.01, 34} = -2.441</span>, we fail to reject the null hypothesis and it follows that the sample mean is not signficantly different from the norm.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-14-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-1" role="tab" aria-controls="tabset-14-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-2" role="tab" aria-controls="tabset-14-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-14-1-tab">
+<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="at">p=</span><span class="dv">1</span> <span class="sc">-</span> alpha, <span class="at">df=</span>df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Replace <code>alpha</code> with your desired level of significance and <code>df</code> with the degrees of freedom. Note that if you use a two-tailed test you need to divide your level of significance by two. If you are only using a lower-tailed test be sure to set <code>lower.tail</code> to <code>TRUE</code>.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x=</span> var, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">mu =</span> h_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>t.test()</code> is a function that conducts a t-test. The output presents p-values and confidence intervals as measures of how well the sample data fits the null hypothesis. If the p-value is below <span class="math inline">1-\alpha</span>, the test rejects the null hypothesis.</p>
+</div>
+<div id="tabset-14-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>display <span class="fu">invttail</span>(df, alpha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Replace <code>alpha</code> with your desired level of significance and <code>df</code> with the degrees of freedom. Note that if you use a two-tailed test you need to divide your level of significance by two.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ttest varname <span class="sc">==</span> h_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>ttest</code> is a function that conducts a t-test. The output presents p-values and confidence intervals as measures of how well the sample data fits the null hypothesis. If the p-value, or <span class="math inline">P(|T| &gt; |t|)</span> is below <span class="math inline">1-\alpha</span>, the test rejects the null hypothesis.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="wilcoxon-signed-rank-test" class="level5">
+<h5 class="anchored" data-anchor-id="wilcoxon-signed-rank-test">Wilcoxon signed-rank test</h5>
+<p>Unlike the two previous tests, the <em>wilcoxon signed-rank test</em> does not assume that the data are normally distributed or have large sample properties that approximate a normal distribution. Furthermore, the <em>wilcoxon signed-rank test</em> is more resilient to outliers. It does however assume that the population data are distributed symmetrically and that the data are continuous.</p>
+<p>The <em>wilcoxon</em> can be used to test for a population median (or mean - they are the same ). Based on the symmetry of the distribution of the observed data, the test statistic <span class="math inline">W</span> is calculated based on the ranks of absolute differences to the hypothesized median (<span class="math inline">H_0</span>). To obtain the test statistic, all ranks with a positive difference to the hypothesized median are summed. Formally,</p>
+<p><span class="math display">w = \sum_i^N z_i \times r_i</span></p>
+<p>where <span class="math inline">z_i</span> is a binary variable indicating if the difference of value <span class="math inline">i</span> to <span class="math inline">h_0</span> is positive. <span class="math inline">r_i</span> is the rank of value <span class="math inline">i</span>.</p>
+<p>We test <span class="math inline">w</span> against a critical value <span class="math inline">w_{\alpha}</span> determined by the predefined significance level <span class="math inline">\alpha</span>, the hypotheses (do we need to do a one-tailed or two-tailed test?), and the sample size. Note that for left-tailed and two-tailed tests the critical value <span class="math inline">w_{1-\alpha}=\frac{n \times (n+1)}{2} - w_{\alpha}</span>, as <span class="math inline">w</span> is symmetrically distributed.</p>
+<p>Note that for large samples caculating the critical value is inconvenient. Instead we use the approximation <span class="math inline">w'</span>, which approximately follows a normal distribution for <span class="math inline">N &gt; 24</span>. The sampling distribution for <span class="math inline">w'</span> is defined by the mean <span class="math inline">\bar{w'} = \frac{n \times (n+1)}{4}</span> and the variance <span class="math inline">\s_{w'}= \frac{n\times (n+1)\times (2n+1)}{24}</span> This allows us to compare <span class="math inline">w'</span> to the table for critical value for <span class="math inline">z-scores</span> using <span class="math inline">\alpha</span> or <span class="math inline">\alpha / 2</span> depending on whether we use a one-tailed or two-tailed test.</p>
+<p><span class="math display">w' =  \frac{\sum_i^N z_i \times r_i - \frac{n \times (n+1)}{4}}{\sqrt{\frac{n\times (n+1)(2n+1)}{24}}}</span></p>
+<p>As with the previous tests, statistics programs will determine the test statistic and critical values for you. If you want to look them up by hand you can find a table <a href="https://users.stat.ufl.edu/~winner/tables/wilcox_signrank.pdf">here</a>. For large samples you can consult the table from the previous section on <em>z-tests</em>.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <em>wilcoxon signed-rank test</em> assumes that the <strong>population data</strong> is symmetrically distributed. If you cannot reasonably make that assumption you should use the sign test.</p>
+</div>
+</div>
+</section>
+<section id="example-2" class="level5">
+<h5 class="anchored" data-anchor-id="example-2">Example</h5>
+<p>We will use a small sample example to illustrate the <em>wilcoxon signed rank test</em> to determine the median.</p>
+<p>We want to determine if the median time between confirmation of a malaria case and treatment with ACT is below 24 hours in a random sample of size 10. For the purpose of the example we assume that the true time is distributed symmetrically in the population.</p>
+<p>We specify our null hypothesis as <span class="math inline">H_0 = 24.0</span> and our alternative hypothesis as <span class="math inline">H_1 &lt; 24</span>.</p>
+<p>The desired signficance level is <span class="math inline">\alpha = 0.05</span>.</p>
+<p>We tabulate the data to calculate the test statistic:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\i</span></th>
+<th><span class="math inline">x_i</span></th>
+<th><span class="math inline">x_i - m_0</span></th>
+<th><span class="math inline">r_i</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">8.5</span></td>
+<td><span class="math inline">-15.5</span></td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">31.2</span></td>
+<td><span class="math inline">7.2</span></td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">28.1</span></td>
+<td><span class="math inline">4.1</span></td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">15.7</span></td>
+<td><span class="math inline">-8.3</span></td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">25.0</span></td>
+<td><span class="math inline">1</span></td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><span class="math inline">24.9</span></td>
+<td><span class="math inline">0.9</span></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><span class="math inline">4.4</span></td>
+<td><span class="math inline">-19.6</span></td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="math inline">18.9</span></td>
+<td><span class="math inline">-5.1</span></td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td><span class="math inline">28.9</span></td>
+<td><span class="math inline">4.9</span></td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td><span class="math inline">22.1</span></td>
+<td><span class="math inline">-1.9</span></td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Summing up the ranks of the positive differences, we get <span class="math inline">w = 7+4+2+1+5 = 19</span>. As described above, we make use of the symmetry of <span class="math inline">w</span> <span class="math inline">w_{1-0.05}=\frac{10 \times (11)}{2} - w_{0.05} = 55 - 44 = 11</span>. Because <span class="math inline">19 &gt; w_{1-0.05}</span>. We thus fail to reject the null hypothesis.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-15-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-15-1" role="tab" aria-controls="tabset-15-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-15-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-15-2" role="tab" aria-controls="tabset-15-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-15-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-15-1-tab">
+<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="at">x =</span> var, <span class="at">mu =</span> h_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>wilcox.test()</code> is a function that conducts a wilcoxon signed rank test. The output presents p-values and confidence intervals as measures of how well the sample data fits the null hypothesis. If the p-value is below <span class="math inline">1-\alpha</span>, the test rejects the null hypothesis.</p>
+</div>
+<div id="tabset-15-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-15-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>signrank var <span class="ot">=</span> h_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>signrank</code> is a function that conducts a wilcoxon. The output presents p-values and confidence intervals as measures of how well the sample data fits the null hypothesis. It provides are slightly more detailed view then R.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="test-of-proportion" class="level4">
+<h4 class="anchored" data-anchor-id="test-of-proportion">Test of proportion</h4>
+<p>If we wish to draw inferences about population proportions based on sample proportions we can calculate the <em>z-score</em>. Sample proportions may be of interest for binary or dichotomuous variables. Similar to the test of means or medians we compare the sample proportion to the porportion specified in the null hypothesis.</p>
+<p>For large samples the standardized <em>z-score</em> approximately follows a normal distribution. As a result, we can use the critical values defining rejection regions for the <em>z-test</em>. Formally, the <em>z-score</em> is defined as</p>
+<p><span class="math display">z = \frac{\hat{p}-p_0}{\sqrt{\frac{p_0\times (1- p_0)}{n}}}</span></p>
+<p>where <span class="math inline">s_{p_0}=\sqrt{\frac{p_0\times (1- p_0)}{n}}</span> is the value of the standard error assuming <span class="math inline">H_0</span> is true.</p>
+<p>For samples <span class="math inline">min(n \times p_0, n(1-p_0)) &lt; 5</span>, we need to use an exact test.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The hypothesis test introduced above assumes that <span class="math inline">N \times p \times (1-p) \geq 10</span>, where <span class="math inline">N</span> is our sample size and <span class="math inline">p</span> is the sample proportion.</p>
+</div>
+</div>
+<section id="example-3" class="level5">
+<h5 class="anchored" data-anchor-id="example-3">Example</h5>
+<p>Based on a previous estimate we hypothesize that the point prevalence of a disease is <span class="math inline">p_0 = 0.125</span>. In our sample (N = 200) we observe a prevalence of <span class="math inline">\hat{p}=0.15</span>. We thus specify in our null hypothesis that <span class="math inline">H_0: p_0 = \hat{p}</span>. Based on a significance level of <span class="math inline">\alpha = 0.05</span> we determine that our critical values are <span class="math inline">z_a = |1.96|</span>. We calculate <span class="math inline">z = \frac{p_0-\hat{p}}{\sqrt{p_0(1-p_0)/n}}</span> and it follows that <span class="math inline">z=-45.7</span>. We therefore reject the null hypothesis.</p>
+</section>
+</section>
+<section id="test-of-variance" class="level4">
+<h4 class="anchored" data-anchor-id="test-of-variance">Test of variance</h4>
+<p>We know that the sample variance <span class="math inline">s^2 = \frac{\sum_{i=1}^N(x_i - \bar{x})^2}{(n-1)}</span> is an estimator of the population variance <span class="math inline">\sigma^2</span>. Similar to our estimators of means, medians and proportions, sampling entails uncertainty to our estimator due to sampling error. Thus, in order to make valid inferences we use hypothesis tests to draw inferences about <span class="math inline">\sigma^2</span>. Typically, we do so in the context of measuring the precision or spread of our quantity of interest.</p>
+<p>As with the parametric hypothesis tests about the mean and proportion mentioned above, we assume that our population data approximately follows a normal distribution. Beyond that, the test statistic again has the convenient property of following a known distribution, the <em>chi-square distribution</em>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Chi-square distribution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The chi-square distribution is a continuous probability distribution that is only defined for positive values; that is, all negative values have a probability of <span class="math inline">p_{\chi^2} = 0</span>. It is not symmetric and varies based on the degrees of freedom.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="stats_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="stats_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The test statistic <span class="math inline">\chi^2</span> is formally defined as</p>
+<p><span class="math display">\chi^2_{N-1} = \frac{(N-1)\times s^2}{\sigma_0^2}</span></p>
+<p>where $<span class="math inline">N-1</span> is our sample size minus 1, or the degrees of freedom of our sample. <span class="math inline">s^2</span> represents the sample variance and <span class="math inline">\sigma_0^2</span> represents the population variance specified in the null hypothesis.</p>
+<p>The critical value is determined based on the degrees of freedom and our specified significance level <span class="math inline">\alpha</span>. As with the other critical values, <span class="math inline">\chi^2_{\alpha, d.f.}</span> is calculated by your statistics software. If you wish to determine it by hand though, you can find a table [here]</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <em>chi-square test</em> for the population variance assumes that the <strong>population data</strong> is normally distributed.</p>
+</div>
+</div>
+</section>
+<section id="tests-about-two-means" class="level4">
+<h4 class="anchored" data-anchor-id="tests-about-two-means">Tests about two means</h4>
+<p>We can further use hypothesis tests to test if two distributions and their related sample statistics are the same. The tests for two means are very similar to the ones for hypothesis tests about a single mean as they are based on the same basic proporties of sampling distributions. We again have parametric and non-parametric tests, that is, tests that make assumptions about the distributions of the sample statistics and their parameters. This section will look at two-sample <em>z-tests</em>, <em>t-tests</em>, and <em>chi-square tests</em> as examples of parametric tests. The Mann-Whitney test is an example of a non-parametric test.</p>
+<section id="z-test-1" class="level5">
+<h5 class="anchored" data-anchor-id="z-test-1">Z-test</h5>
+<p>We calculate our test statistic using</p>
+<p><span class="math display">
+z = \frac{(\bar{x}-\bar{y})- (\mu_x - \mu_y)}{\sqrt{\sigma_{x/N}^2 + \sigma_{y/M}^2}}
+</span></p>
+<p>where <span class="math inline">(\bar{x}-\bar{y})</span> is the difference in sample means, <span class="math inline">(\mu_x - \mu_y)</span> is the difference specified in the null hypothesis, and <span class="math inline">\sqrt{\sigma_{x/N}^2 + \sigma_{y/M}^2}</span> is the standard error of the difference estimator. Note that the calculation of the standard error includes our population variance. Assuming large sample sizes (each N &gt; 30), we can again make use of the large sample properties of the variance estimator defined above. As a result,</p>
+<p><span class="math display">
+z = \frac{(\bar{x}-\bar{y})- (\mu_x - \mu_y)}{\sqrt{s_{x/N}^2 + s_{y/M}^2}}
+</span></p>
+<p>Since the resulting test statistic, the <em>z-score</em>, approximately follows a standard normal, we can calculate the critical value in the same way as we did before. It is again determinded by the significance level <span class="math inline">\alpha</span>.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <em>z-test</em> for differences in means assumes that the two samples were sampled independently from populations with known variance. Similar to the <em>z-test</em> for single means, the latter restriction can be violated if the sample size is sufficiently large (n &gt; 30).</p>
+</div>
+</div>
+</section>
+<section id="example-4" class="level5">
+<h5 class="anchored" data-anchor-id="example-4">Example</h5>
+<p>Thus far we have compared the mean height of children in a random sample of 35 under 5 year olds. Let us assume that we can divide the sample into subsamples by gender: 20 females and 15 males.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-16-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-1" role="tab" aria-controls="tabset-16-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-16-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-2" role="tab" aria-controls="tabset-16-2" aria-selected="false">Stata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-16-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-16-1-tab">
+<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-16-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-16-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>signrank var <span class="ot">=</span> h_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="welch-t-test" class="level5">
+<h5 class="anchored" data-anchor-id="welch-t-test">Welch t-test</h5>
+<section id="equal-variance" class="level6">
+<h6 class="anchored" data-anchor-id="equal-variance">Equal variance</h6>
+</section>
+<section id="unequal-variance" class="level6">
+<h6 class="anchored" data-anchor-id="unequal-variance">Unequal variance</h6>
+</section>
+</section>
+<section id="mann-whitney-test" class="level5">
+<h5 class="anchored" data-anchor-id="mann-whitney-test">Mann-Whitney test</h5>
+</section>
+</section>
+<section id="chi-square-test" class="level4">
+<h4 class="anchored" data-anchor-id="chi-square-test">Chi-square test</h4>
+</section>
+<section id="differences-in-proportions" class="level4">
+<h4 class="anchored" data-anchor-id="differences-in-proportions">Differences in proportions</h4>
+</section>
+<section id="differences-in-more-than-two-means" class="level4">
+<h4 class="anchored" data-anchor-id="differences-in-more-than-two-means">Differences in more than two means</h4>
+</section>
+<section id="p-values" class="level4">
+<h4 class="anchored" data-anchor-id="p-values">P-values</h4>
+</section>
+<section id="confidence-intervals" class="level4">
+<h4 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals</h4>
 </section>
 </section>
 <section id="linear-regression" class="level3">
 <h3 class="anchored" data-anchor-id="linear-regression">Linear regression</h3>
+<section id="diagnostics-and-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="diagnostics-and-assumptions">Diagnostics and assumptions</h4>
+</section>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
+</section>
 </section>
 <section id="logistic-regression" class="level3">
 <h3 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h3>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Latent variable interpretation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A latent variable is a variable that is not directly observed or measured. Based on the unobserved process, researchers construct a measure that aims to capture the underlying, latent process. Examples of latent variables are depression, self-esteem, or intelligence.</p>
+</div>
+</div>
+</div>
+<section id="diagnostics-and-assumptions-1" class="level4">
+<h4 class="anchored" data-anchor-id="diagnostics-and-assumptions-1">Diagnostics and assumptions</h4>
+</section>
+<section id="interpretation-1" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation-1">Interpretation</h4>
+</section>
 </section>
 <section id="proportional-odds-models" class="level3">
 <h3 class="anchored" data-anchor-id="proportional-odds-models">Proportional odds models</h3>
+<p>If we wish to estimate a model with an ordered dependent variable, an <strong>ordered logistic model</strong> may be an apt choice. Examples of ordered dependent variables include</p>
 </section>
 </section>
 <section id="exercises" class="level2">
@@ -832,12 +1351,13 @@ One-tailed hypothesis test
 <ol class="example" type="1">
 <li>calculate the ratio of female to male participants</li>
 <li>calculate the fever point prevalence of the sample</li>
-<li>calculate the relative risk of testing positive for COVID-19 by gender</li>
 <li>produce a boxplot of age and a histogram of the age groups</li>
-<li>using two-way frequency tables, statisfy all symptoms first by age, then gender</li>
-<li>estimate a linear regression model, regressing test result on age, gender, occupation, publive_transport, and family_contact</li>
-<li>determine the model fit and compare different variations pf the model. What could be an issue with the coefficients?</li>
-<li>estimate a logistic regression model, regressing test result on age, gender, occupation, publive_transport, and family_contact</li>
+<li>using two-way frequency tables, stratify all symptoms first by age, then gender and conduct an approporiate significance test</li>
+<li>estimate a linear regression model regressing test result on age, gender, occupation, public transport, and family contact and produce a table of your results showing the estimates and standard errors for the effect of each independent variable</li>
+<li>determine the model fit (<span class="math inline">R^2</span>), sample size (<span class="math inline">N</span>), and predicted values (<span class="math inline">\hat{y}</span>). What could be an issue with the coefficients?</li>
+<li>estimate a logistic regression model, regressing test result on age, gender, occupation, public transport, and family contact</li>
+<li>dermine the model fit (pseudo <span class="math inline">R^2</span>) and percent correctly predicted<br>
+</li>
 <li>create at least one latter plot and state the effect size as odds ratios</li>
 </ol>
 
