@@ -160,6 +160,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./basics.html">Basics</a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link active" href="./stats.html" aria-current="page">Quantitative Analysis</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./survey.html">Survey Data Analysis</a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./resources.html">Resources</a>
   </li>  
 </ul>
@@ -199,9 +205,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#inferential-statistics" id="toc-inferential-statistics" class="nav-link" data-scroll-target="#inferential-statistics">Inferential statistics</a>
   <ul class="collapse">
   <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis testing</a></li>
-  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear regression</a></li>
-  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a></li>
-  <li><a href="#proportional-odds-models" id="toc-proportional-odds-models" class="nav-link" data-scroll-target="#proportional-odds-models">Proportional odds models</a></li>
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
@@ -1263,89 +1266,7 @@ Danger
 </div>
 </div>
 </section>
-<section id="example-4" class="level5">
-<h5 class="anchored" data-anchor-id="example-4">Example</h5>
-<p>Thus far we have compared the mean height of children in a random sample of 35 under 5 year olds. Let us assume that we can divide the sample into subsamples by gender: 20 females and 15 males.</p>
-<div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-16-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-1" role="tab" aria-controls="tabset-16-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-16-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-2" role="tab" aria-controls="tabset-16-2" aria-selected="false">Stata</a></li></ul>
-<div class="tab-content">
-<div id="tabset-16-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-16-1-tab">
-<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-16-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-16-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>signrank var <span class="ot">=</span> h_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
 </section>
-<section id="welch-t-test" class="level5">
-<h5 class="anchored" data-anchor-id="welch-t-test">Welch t-test</h5>
-<section id="equal-variance" class="level6">
-<h6 class="anchored" data-anchor-id="equal-variance">Equal variance</h6>
-</section>
-<section id="unequal-variance" class="level6">
-<h6 class="anchored" data-anchor-id="unequal-variance">Unequal variance</h6>
-</section>
-</section>
-<section id="mann-whitney-test" class="level5">
-<h5 class="anchored" data-anchor-id="mann-whitney-test">Mann-Whitney test</h5>
-</section>
-</section>
-<section id="chi-square-test" class="level4">
-<h4 class="anchored" data-anchor-id="chi-square-test">Chi-square test</h4>
-</section>
-<section id="differences-in-proportions" class="level4">
-<h4 class="anchored" data-anchor-id="differences-in-proportions">Differences in proportions</h4>
-</section>
-<section id="differences-in-more-than-two-means" class="level4">
-<h4 class="anchored" data-anchor-id="differences-in-more-than-two-means">Differences in more than two means</h4>
-</section>
-<section id="p-values" class="level4">
-<h4 class="anchored" data-anchor-id="p-values">P-values</h4>
-</section>
-<section id="confidence-intervals" class="level4">
-<h4 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals</h4>
-</section>
-</section>
-<section id="linear-regression" class="level3">
-<h3 class="anchored" data-anchor-id="linear-regression">Linear regression</h3>
-<section id="diagnostics-and-assumptions" class="level4">
-<h4 class="anchored" data-anchor-id="diagnostics-and-assumptions">Diagnostics and assumptions</h4>
-</section>
-<section id="interpretation" class="level4">
-<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
-</section>
-</section>
-<section id="logistic-regression" class="level3">
-<h3 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h3>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Latent variable interpretation
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>A latent variable is a variable that is not directly observed or measured. Based on the unobserved process, researchers construct a measure that aims to capture the underlying, latent process. Examples of latent variables are depression, self-esteem, or intelligence.</p>
-</div>
-</div>
-</div>
-<section id="diagnostics-and-assumptions-1" class="level4">
-<h4 class="anchored" data-anchor-id="diagnostics-and-assumptions-1">Diagnostics and assumptions</h4>
-</section>
-<section id="interpretation-1" class="level4">
-<h4 class="anchored" data-anchor-id="interpretation-1">Interpretation</h4>
-</section>
-</section>
-<section id="proportional-odds-models" class="level3">
-<h3 class="anchored" data-anchor-id="proportional-odds-models">Proportional odds models</h3>
-<p>If we wish to estimate a model with an ordered dependent variable, an <strong>ordered logistic model</strong> may be an apt choice. Examples of ordered dependent variables include</p>
 </section>
 </section>
 <section id="exercises" class="level2">
